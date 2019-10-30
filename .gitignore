@@ -1,0 +1,11 @@
+*/Debug/*
+
+.jxbrowser-data/*
+.metadata/*
+
+RemoteSystemsTempFiles/*
+/.metadata/
+*/.gitignore
+*/.settings/*
+
+*/.launches/*
