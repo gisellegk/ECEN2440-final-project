@@ -1,0 +1,26 @@
+* C:\Users\Giselle\Desktop\classes\ecen 2440\ECEN2440-final-project\ltspice\Draft2.asc
+V2 audio_sine 0 SINE(.5 .5 600 0)
+B1 N001 0 V=(V(TA_R)<=V(sine_LUT))
+R1 N002 N001 {R}
+C1 N002 0 {C}
+R2 N003 N002 {R}
+C2 N003 0 {C}
+R3 N004 N003 {R}
+C3 N004 0 {C}
+B2 Timer_RAW 0 V=(idtmod(1,0,1/f_pwm)*Fsys)
+B3 TA_R 0 V=(floor(V(Timer_Raw)))
+B4 sine_LUT 0 V=floor(CR0*V(audio_sine))
+C4 NC_01 N004 1µ
+.step param f_pwm 100k 500k 100k
+.tran 0 10m 0 10n
+.param C 500n
+.param R 100
+.param Fsys 3e6
+.param CR0 {Fsys/f_pwm}
+* 600Hz desired audio \nvoltage %, from 0 to 1
+* multiplying sine voltage % by \nCR0 (which is # of ticks \nper PWM cycle, zero \nindexed) = number of \nticks long your PWM \npulse should be
+* TA_R tells you what tick you're on \nso if this value is true then the signal will be 1, \nand if it's false, the signal will be 0
+* discrete values of TA_R (x axis)
+* discrete voltage levels of sine wave (y axis)
+.backanno
+.end
