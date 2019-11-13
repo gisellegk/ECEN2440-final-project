@@ -889,25 +889,24 @@
 <wire x1="0" y1="35.6" x2="19" y2="35.6" width="0.127" layer="21"/>
 <wire x1="19" y1="35.6" x2="19" y2="0" width="0.127" layer="21"/>
 <wire x1="19" y1="0" x2="0" y2="0" width="0.127" layer="21"/>
-<pad name="SQ" x="0.5" y="4.45" drill="0.6" shape="square"/>
-<pad name="NC5" x="0.5" y="8.9" drill="0.6" shape="square"/>
-<pad name="AF_OUT" x="0.5" y="13.35" drill="0.6" shape="square"/>
-<pad name="NC4" x="0.5" y="17.8" drill="0.6" shape="square"/>
-<pad name="PTT" x="0.5" y="22.25" drill="0.6" shape="square"/>
-<pad name="PD" x="0.5" y="26.7" drill="0.6" shape="square"/>
-<pad name="H/L" x="0.5" y="31.15" drill="0.6" shape="square"/>
-<pad name="MIC_IN" x="18.5" y="4.45" drill="0.6" shape="square"/>
-<pad name="TXD" x="18.5" y="8.9" drill="0.6" shape="square"/>
-<pad name="RXD" x="18.5" y="13.35" drill="0.6" shape="square"/>
-<pad name="NC" x="18.5" y="17.8" drill="0.6" shape="square"/>
-<pad name="NC1" x="18.5" y="22.25" drill="0.6" shape="square"/>
-<pad name="NC2" x="18.5" y="26.7" drill="0.6" shape="square"/>
-<pad name="ANT" x="18.5" y="31.15" drill="0.6" shape="square"/>
-<pad name="VBATT" x="2.6" y="35" drill="0.6" shape="square"/>
-<pad name="GND1" x="7.2" y="35" drill="0.6" shape="square"/>
-<pad name="GND" x="11.8" y="35" drill="0.6" shape="square"/>
-<pad name="NC3" x="16.4" y="35" drill="0.6" shape="square"/>
-<smd name="P$1" x="2.59" y="36.96" dx="1.905" dy="1.27" layer="1" rot="R270"/>
+<smd name="VBAT" x="2.6" y="34.6" dx="2" dy="1.4" layer="1" rot="R270"/>
+<smd name="GND1" x="7.2" y="34.6" dx="2" dy="1.4" layer="1" rot="R90"/>
+<smd name="GND" x="11.8" y="34.6" dx="2" dy="1.4" layer="1" rot="R90"/>
+<smd name="NC3" x="16.4" y="34.6" dx="2" dy="1.4" layer="1" rot="R90"/>
+<smd name="ANT" x="18" y="31.15" dx="2" dy="1.4" layer="1" rot="R180"/>
+<smd name="NC2" x="18" y="26.7" dx="2" dy="1.4" layer="1" rot="R180"/>
+<smd name="NC1" x="18" y="22.25" dx="2" dy="1.4" layer="1" rot="R180"/>
+<smd name="NC" x="18" y="17.8" dx="2" dy="1.4" layer="1" rot="R180"/>
+<smd name="RXD" x="18" y="13.35" dx="2" dy="1.4" layer="1" rot="R180"/>
+<smd name="TXD" x="18" y="8.9" dx="2" dy="1.4" layer="1" rot="R180"/>
+<smd name="MIC_IN" x="18" y="4.45" dx="2" dy="1.4" layer="1" rot="R180"/>
+<smd name="SQ" x="1" y="4.45" dx="2" dy="1.4" layer="1" rot="R180"/>
+<smd name="NC6" x="1" y="8.9" dx="2" dy="1.4" layer="1" rot="R180"/>
+<smd name="AF_OUT" x="1" y="13.35" dx="2" dy="1.4" layer="1" rot="R180"/>
+<smd name="NC5" x="1" y="17.8" dx="2" dy="1.4" layer="1" rot="R180"/>
+<smd name="PTT" x="1" y="22.35" dx="2" dy="1.4" layer="1" rot="R180"/>
+<smd name="PD" x="1" y="26.7" dx="2" dy="1.4" layer="1" rot="R180"/>
+<smd name="H/L" x="1" y="31.15" dx="2" dy="1.4" layer="1" rot="R180"/>
 </package>
 </packages>
 <packages3d>
@@ -1418,26 +1417,6 @@
 </gates>
 <devices>
 <device name="" package="RADIO">
-<connects>
-<connect gate="G$1" pin="AF_OUT" pad="AF_OUT"/>
-<connect gate="G$1" pin="ANTENNA" pad="ANT"/>
-<connect gate="G$1" pin="GND" pad="GND"/>
-<connect gate="G$1" pin="GND2" pad="GND1"/>
-<connect gate="G$1" pin="H/L" pad="H/L"/>
-<connect gate="G$1" pin="MIC_IN" pad="MIC_IN"/>
-<connect gate="G$1" pin="NC" pad="NC"/>
-<connect gate="G$1" pin="NC1" pad="NC1"/>
-<connect gate="G$1" pin="NC2" pad="NC2"/>
-<connect gate="G$1" pin="NC3" pad="NC3"/>
-<connect gate="G$1" pin="NC4" pad="NC4"/>
-<connect gate="G$1" pin="NC5" pad="NC5"/>
-<connect gate="G$1" pin="PD" pad="PD"/>
-<connect gate="G$1" pin="PTT" pad="PTT"/>
-<connect gate="G$1" pin="RXD" pad="RXD"/>
-<connect gate="G$1" pin="SQ" pad="SQ"/>
-<connect gate="G$1" pin="TXD" pad="TXD"/>
-<connect gate="G$1" pin="VBATT" pad="VBATT"/>
-</connects>
 <technologies>
 <technology name=""/>
 </technologies>
