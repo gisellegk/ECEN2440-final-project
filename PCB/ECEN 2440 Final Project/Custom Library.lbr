@@ -741,38 +741,6 @@
 <text x="54.864" y="48.26" size="0.8128" layer="22" font="vector" ratio="14" rot="MR0">J2</text>
 <text x="48.006" y="48.26" size="0.8128" layer="22" font="vector" ratio="14" rot="MR0">J4</text>
 <text x="11.684" y="48.26" size="0.8128" layer="22" font="vector" ratio="14" rot="MR0">J3</text>
-<attribute name="NAME" x="49.6586" y="-9.5104" size="0.7112" layer="25" font="vector" ratio="14" rot="R90"/>
-<attribute name="NAME" x="37.3526" y="14.832" size="0.7112" layer="25" font="vector" ratio="14"/>
-<attribute name="NAME" x="44.0198" y="16.8294" size="0.7112" layer="25" font="vector" ratio="14" rot="R90"/>
-<attribute name="NAME" x="42.0132" y="16.8294" size="0.7112" layer="25" font="vector" ratio="14" rot="R90"/>
-<attribute name="NAME" x="53.975" y="-2.3495" size="0.7112" layer="25" font="vector" ratio="14"/>
-<attribute name="VALUE" x="56.642" y="-0.8255" size="1.27" layer="27"/>
-<attribute name="NAME" x="55.961" y="3.9815" size="0.7112" layer="25" font="vector" ratio="14"/>
-<attribute name="VALUE" x="55.2195" y="0.0175" size="1.016" layer="27" ratio="10" rot="R90"/>
-<attribute name="NAME" x="51.1048" y="-6.2865" size="0.7112" layer="25" font="vector" ratio="14" rot="SR0"/>
-<attribute name="VALUE" x="47.9044" y="2.54" size="1.27" layer="27" ratio="6" rot="SR180"/>
-<attribute name="NAME" x="57.912" y="2.921" size="0.7112" layer="25" font="vector" ratio="14"/>
-<attribute name="VALUE" x="56.515" y="2.286" size="1.27" layer="27" rot="R270"/>
-<attribute name="NAME" x="32.9565" y="-0.4445" size="0.7112" layer="25" font="vector" ratio="14" rot="R180"/>
-<attribute name="VALUE" x="32.9565" y="0.0635" size="1.27" layer="27" rot="R180"/>
-<attribute name="NAME" x="31.5145" y="-4.9055" size="0.7112" layer="25" font="vector" ratio="14"/>
-<attribute name="VALUE" x="30.2445" y="-5.5635" size="1.27" layer="27"/>
-<attribute name="NAME" x="35.346" y="13.435" size="0.7112" layer="25" font="vector" ratio="14"/>
-<attribute name="NAME" x="40.005" y="16.129" size="0.7112" layer="25" font="vector" ratio="14" rot="R180"/>
-<attribute name="VALUE" x="38.354" y="12.827" size="1.27" layer="27" rot="R90"/>
-<attribute name="NAME" x="54.483" y="-0.889" size="0.7112" layer="25" font="vector" ratio="14"/>
-<attribute name="VALUE" x="56.388" y="-2.413" size="1.27" layer="27"/>
-<attribute name="NAME" x="40.259" y="-10.16" size="0.7112" layer="25" font="vector" ratio="14" rot="R90"/>
-<attribute name="VALUE" x="42.799" y="-10.16" size="1.27" layer="27" rot="R90"/>
-<attribute name="NAME" x="48.641" y="-9.779" size="0.7112" layer="25" font="vector" ratio="14" rot="R90"/>
-<attribute name="VALUE" x="44.069" y="-8.128" size="1.27" layer="27" rot="R270"/>
-<attribute name="NAME" x="44.7705" y="12.581" size="0.7112" layer="25" font="vector" ratio="14"/>
-<attribute name="VALUE" x="46.0295" y="9.274" size="1.27" layer="27" rot="R90"/>
-<attribute name="NAME" x="43.417" y="-6.884" size="0.7112" layer="25" font="vector" ratio="14" rot="R180"/>
-<attribute name="NAME" x="18.669" y="15.24" size="0.8128" layer="21" font="vector" ratio="14"/>
-<attribute name="NAME" x="68.707" y="15.24" size="0.8128" layer="21" font="vector" ratio="14"/>
-<attribute name="NAME" x="25.527" y="15.24" size="0.8128" layer="21" font="vector" ratio="14"/>
-<attribute name="NAME" x="61.976" y="15.24" size="0.8128" layer="21" font="vector" ratio="14"/>
 <wire x1="48.26" y1="23.495" x2="48.26" y2="24.765" width="0.1524" layer="21"/>
 <wire x1="48.26" y1="24.765" x2="48.895" y2="25.4" width="0.1524" layer="21"/>
 <wire x1="48.895" y1="25.4" x2="48.26" y2="26.035" width="0.1524" layer="21"/>
@@ -915,6 +883,30 @@
 <text x="56.5912" y="42.4942" size="1.016" layer="51" font="vector" ratio="14" rot="R180">P3.2</text>
 <text x="56.5912" y="45.0342" size="1.016" layer="51" font="vector" ratio="14" rot="R180">P6.0</text>
 <text x="54.61" y="45.72" size="1.27" layer="21">3V3</text>
+</package>
+<package name="RADIO">
+<wire x1="0" y1="0" x2="0" y2="35.6" width="0.127" layer="21"/>
+<wire x1="0" y1="35.6" x2="19" y2="35.6" width="0.127" layer="21"/>
+<wire x1="19" y1="35.6" x2="19" y2="0" width="0.127" layer="21"/>
+<wire x1="19" y1="0" x2="0" y2="0" width="0.127" layer="21"/>
+<pad name="SQ" x="0.5" y="4.45" drill="0.6" shape="square"/>
+<pad name="NC5" x="0.5" y="8.9" drill="0.6" shape="square"/>
+<pad name="AF_OUT" x="0.5" y="13.35" drill="0.6" shape="square"/>
+<pad name="NC4" x="0.5" y="17.8" drill="0.6" shape="square"/>
+<pad name="PTT" x="0.5" y="22.25" drill="0.6" shape="square"/>
+<pad name="PD" x="0.5" y="26.7" drill="0.6" shape="square"/>
+<pad name="H/L" x="0.5" y="31.15" drill="0.6" shape="square"/>
+<pad name="MIC_IN" x="18.5" y="4.45" drill="0.6" shape="square"/>
+<pad name="TXD" x="18.5" y="8.9" drill="0.6" shape="square"/>
+<pad name="RXD" x="18.5" y="13.35" drill="0.6" shape="square"/>
+<pad name="NC" x="18.5" y="17.8" drill="0.6" shape="square"/>
+<pad name="NC1" x="18.5" y="22.25" drill="0.6" shape="square"/>
+<pad name="NC2" x="18.5" y="26.7" drill="0.6" shape="square"/>
+<pad name="ANT" x="18.5" y="31.15" drill="0.6" shape="square"/>
+<pad name="VBATT" x="2.6" y="35" drill="0.6" shape="square"/>
+<pad name="GND1" x="7.2" y="35" drill="0.6" shape="square"/>
+<pad name="GND" x="11.8" y="35" drill="0.6" shape="square"/>
+<pad name="NC3" x="16.4" y="35" drill="0.6" shape="square"/>
 </package>
 </packages>
 <packages3d>
@@ -1125,6 +1117,31 @@
 <pin name="19" x="7.62" y="12.7" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="18" x="-7.62" y="10.16" visible="pad" length="middle" direction="pas" swaplevel="1"/>
 <pin name="20" x="-7.62" y="12.7" visible="pad" length="middle" direction="pas" swaplevel="1"/>
+</symbol>
+<symbol name="RADIO">
+<wire x1="0" y1="0" x2="0" y2="40.64" width="0.254" layer="94"/>
+<wire x1="0" y1="40.64" x2="20.32" y2="40.64" width="0.254" layer="94"/>
+<wire x1="20.32" y1="40.64" x2="20.32" y2="0" width="0.254" layer="94"/>
+<wire x1="20.32" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
+<pin name="VBATT" x="2.54" y="45.72" length="middle" rot="R270"/>
+<pin name="GND2" x="7.62" y="45.72" length="middle" rot="R270"/>
+<pin name="GND" x="12.7" y="45.72" length="middle" rot="R270"/>
+<pin name="NC4" x="17.78" y="45.72" length="middle" rot="R270"/>
+<pin name="ANTENNA" x="25.4" y="30.48" length="middle" rot="R180"/>
+<pin name="MIC_IN" x="25.4" y="0" length="middle" rot="R180"/>
+<pin name="NC3" x="25.4" y="25.4" length="middle" rot="R180"/>
+<pin name="NC2" x="25.4" y="20.32" length="middle" rot="R180"/>
+<pin name="NC1" x="25.4" y="15.24" length="middle" rot="R180"/>
+<pin name="RXD" x="25.4" y="10.16" length="middle" rot="R180"/>
+<pin name="TXD" x="25.4" y="5.08" length="middle" rot="R180"/>
+<pin name="H/L" x="-5.08" y="30.48" length="middle"/>
+<pin name="SQ" x="-5.08" y="0" length="middle"/>
+<pin name="PD" x="-5.08" y="25.4" length="middle"/>
+<pin name="PTT" x="-5.08" y="20.32" length="middle"/>
+<pin name="NC" x="-5.08" y="15.24" length="middle"/>
+<pin name="AF_OUT" x="-5.08" y="10.16" length="middle"/>
+<pin name="NC5" x="-5.08" y="5.08" length="middle"/>
+<text x="17.78" y="-2.54" size="1.27" layer="94">RADIO</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -1390,6 +1407,38 @@
 <attribute name="OC_NEWARK" value="unknown" constant="no"/>
 <attribute name="POPULARITY" value="3" constant="no"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="RADIO">
+<gates>
+<gate name="G$1" symbol="RADIO" x="-10.16" y="-15.24"/>
+</gates>
+<devices>
+<device name="" package="RADIO">
+<connects>
+<connect gate="G$1" pin="AF_OUT" pad="AF_OUT"/>
+<connect gate="G$1" pin="ANTENNA" pad="ANT"/>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="GND2" pad="GND1"/>
+<connect gate="G$1" pin="H/L" pad="H/L"/>
+<connect gate="G$1" pin="MIC_IN" pad="MIC_IN"/>
+<connect gate="G$1" pin="NC" pad="NC"/>
+<connect gate="G$1" pin="NC1" pad="NC1"/>
+<connect gate="G$1" pin="NC2" pad="NC2"/>
+<connect gate="G$1" pin="NC3" pad="NC3"/>
+<connect gate="G$1" pin="NC4" pad="NC4"/>
+<connect gate="G$1" pin="NC5" pad="NC5"/>
+<connect gate="G$1" pin="PD" pad="PD"/>
+<connect gate="G$1" pin="PTT" pad="PTT"/>
+<connect gate="G$1" pin="RXD" pad="RXD"/>
+<connect gate="G$1" pin="SQ" pad="SQ"/>
+<connect gate="G$1" pin="TXD" pad="TXD"/>
+<connect gate="G$1" pin="VBATT" pad="VBATT"/>
+</connects>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
