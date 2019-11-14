@@ -1587,6 +1587,18 @@
 <rectangle x1="22.479" y1="-4.699" x2="23.241" y2="-2.921" layer="51"/>
 <rectangle x1="22.479" y1="-5.461" x2="23.241" y2="-4.699" layer="21"/>
 </package>
+<package name="LFCN-160+">
+<wire x1="-1.6" y1="-0.8" x2="-1.6" y2="0.8" width="0.127" layer="21"/>
+<wire x1="-1.6" y1="0.8" x2="1.6" y2="0.8" width="0.127" layer="21"/>
+<wire x1="1.6" y1="0.8" x2="1.6" y2="-0.8" width="0.127" layer="21"/>
+<wire x1="1.6" y1="-0.8" x2="-1.6" y2="-0.8" width="0.127" layer="21"/>
+<smd name="RF-IN" x="-1.625" y="0" dx="1.8" dy="1.04" layer="1" rot="R270"/>
+<smd name="RF-OUT" x="1.625" y="0" dx="1.8" dy="1.04" layer="1" rot="R270"/>
+<smd name="GND1" x="0" y="0.9275" dx="1.245" dy="0.61" layer="1" rot="R270"/>
+<smd name="GND2" x="0" y="-0.9275" dx="1.245" dy="0.61" layer="1" rot="R270"/>
+<pad name="P$1" x="0" y="1.27" drill="0.381" diameter="0.6096"/>
+<pad name="P$2" x="0" y="-1.27" drill="0.381" diameter="0.6096"/>
+</package>
 </packages>
 <packages3d>
 <package3d name="DIL14" urn="urn:adsk.eagle:package:16407/2" type="model">
@@ -1927,6 +1939,16 @@
 <pin name="34" x="5.08" y="-20.32" visible="pad" length="short" direction="pas" function="dot" rot="R180"/>
 <pin name="36" x="5.08" y="-22.86" visible="pad" length="short" direction="pas" function="dot" rot="R180"/>
 <pin name="38" x="5.08" y="-25.4" visible="pad" length="short" direction="pas" function="dot" rot="R180"/>
+</symbol>
+<symbol name="LFCN-160+">
+<wire x1="-7.62" y1="-7.62" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-7.62" x2="5.08" y2="10.16" width="0.254" layer="94"/>
+<wire x1="5.08" y1="10.16" x2="-7.62" y2="10.16" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="10.16" x2="-7.62" y2="-7.62" width="0.254" layer="94"/>
+<pin name="RF-IN" x="-12.7" y="5.08" length="middle"/>
+<pin name="RF-OUT" x="10.16" y="2.54" length="middle" rot="R180"/>
+<pin name="GND1" x="0" y="-12.7" length="middle" direction="pwr" rot="R90"/>
+<text x="0" y="12.7" size="1.27" layer="94">LFCN-160+</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -2370,6 +2392,23 @@
 <technology name="">
 <attribute name="POPULARITY" value="0" constant="no"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="LFCN-160+">
+<gates>
+<gate name="G$1" symbol="LFCN-160+" x="-17.78" y="-7.62"/>
+</gates>
+<devices>
+<device name="" package="LFCN-160+">
+<connects>
+<connect gate="G$1" pin="GND1" pad="GND1 GND2 P$1 P$2"/>
+<connect gate="G$1" pin="RF-IN" pad="RF-IN"/>
+<connect gate="G$1" pin="RF-OUT" pad="RF-OUT"/>
+</connects>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
