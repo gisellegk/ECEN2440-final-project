@@ -1017,45 +1017,44 @@
 <wire x1="48.26" y1="4.445" x2="48.26" y2="0.635" width="0.1524" layer="21"/>
 <wire x1="50.8" y1="4.445" x2="50.8" y2="0.635" width="0.1524" layer="21"/>
 <wire x1="53.34" y1="4.445" x2="53.34" y2="0.635" width="0.1524" layer="21"/>
-<pad name="1" x="6.35" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="2" x="6.35" y="3.81" drill="1.016" shape="octagon"/>
-<pad name="3" x="8.89" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="4" x="8.89" y="3.81" drill="1.016" shape="octagon"/>
-<pad name="5" x="11.43" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="6" x="11.43" y="3.81" drill="1.016" shape="octagon"/>
-<pad name="7" x="13.97" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="8" x="13.97" y="3.81" drill="1.016" shape="octagon"/>
-<pad name="9" x="16.51" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="10" x="16.51" y="3.81" drill="1.016" shape="octagon"/>
-<pad name="11" x="19.05" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="12" x="19.05" y="3.81" drill="1.016" shape="octagon"/>
-<pad name="13" x="21.59" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="14" x="21.59" y="3.81" drill="1.016" shape="octagon"/>
-<pad name="15" x="24.13" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="16" x="24.13" y="3.81" drill="1.016" shape="octagon"/>
-<pad name="17" x="26.67" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="18" x="26.67" y="3.81" drill="1.016" shape="octagon"/>
-<pad name="19" x="29.21" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="20" x="29.21" y="3.81" drill="1.016" shape="octagon"/>
-<pad name="21" x="31.75" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="22" x="31.75" y="3.81" drill="1.016" shape="octagon"/>
-<pad name="23" x="34.29" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="24" x="34.29" y="3.81" drill="1.016" shape="octagon"/>
-<pad name="25" x="36.83" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="26" x="36.83" y="3.81" drill="1.016" shape="octagon"/>
-<pad name="27" x="39.37" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="28" x="39.37" y="3.81" drill="1.016" shape="octagon"/>
-<pad name="29" x="41.91" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="30" x="41.91" y="3.81" drill="1.016" shape="octagon"/>
-<pad name="31" x="44.45" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="32" x="44.45" y="3.81" drill="1.016" shape="octagon"/>
-<pad name="33" x="46.99" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="34" x="46.99" y="3.81" drill="1.016" shape="octagon"/>
-<pad name="35" x="49.53" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="36" x="49.53" y="3.81" drill="1.016" shape="octagon"/>
-<pad name="37" x="52.07" y="1.27" drill="1.016" shape="octagon"/>
-<pad name="38" x="52.07" y="3.81" drill="1.016" shape="octagon"/>
-<text x="5.08" y="5.715" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<pad name="GND11" x="6.35" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="GND10" x="6.35" y="3.81" drill="1.016" shape="octagon"/>
+<pad name="3V3C" x="8.89" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="3V3B" x="8.89" y="3.81" drill="1.016" shape="octagon"/>
+<pad name="5VB" x="11.43" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="5VA" x="11.43" y="3.81" drill="1.016" shape="octagon"/>
+<pad name="10.5" x="13.97" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="10.4" x="13.97" y="3.81" drill="1.016" shape="octagon"/>
+<pad name="10.3" x="16.51" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="10.2" x="16.51" y="3.81" drill="1.016" shape="octagon"/>
+<pad name="10.1" x="19.05" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="10.0" x="19.05" y="3.81" drill="1.016" shape="octagon"/>
+<pad name="7.7" x="21.59" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="7.6" x="21.59" y="3.81" drill="1.016" shape="octagon"/>
+<pad name="7.5" x="24.13" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="7.4" x="24.13" y="3.81" drill="1.016" shape="octagon"/>
+<pad name="9.7" x="26.67" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="8.0" x="26.67" y="3.81" drill="1.016" shape="octagon"/>
+<pad name="9.5" x="29.21" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="9.6" x="29.21" y="3.81" drill="1.016" shape="octagon"/>
+<pad name="7.0" x="31.75" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="9.4" x="31.75" y="3.81" drill="1.016" shape="octagon"/>
+<pad name="7.2" x="34.29" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="7.1" x="34.29" y="3.81" drill="1.016" shape="octagon"/>
+<pad name="6.3" x="36.83" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="7.3" x="36.83" y="3.81" drill="1.016" shape="octagon"/>
+<pad name="9.3" x="39.37" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="6.2" x="39.37" y="3.81" drill="1.016" shape="octagon"/>
+<pad name="5.3" x="41.91" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="9.2" x="41.91" y="3.81" drill="1.016" shape="octagon"/>
+<pad name="8.3" x="44.45" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="8.2" x="44.45" y="3.81" drill="1.016" shape="octagon"/>
+<pad name="9.1" x="46.99" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="8.4" x="46.99" y="3.81" drill="1.016" shape="octagon"/>
+<pad name="8.7" x="49.53" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="9.0" x="49.53" y="3.81" drill="1.016" shape="octagon"/>
+<pad name="8.6" x="52.07" y="1.27" drill="1.016" shape="octagon"/>
+<pad name="8.5" x="52.07" y="3.81" drill="1.016" shape="octagon"/>
 <text x="5.08" y="-1.905" size="1.27" layer="27">&gt;VALUE</text>
 <rectangle x1="6.096" y1="1.016" x2="6.604" y2="1.524" layer="51"/>
 <rectangle x1="6.096" y1="3.556" x2="6.604" y2="4.064" layer="51"/>
@@ -1095,38 +1094,6 @@
 <rectangle x1="49.276" y1="1.016" x2="49.784" y2="1.524" layer="51"/>
 <rectangle x1="51.816" y1="3.556" x2="52.324" y2="4.064" layer="51"/>
 <rectangle x1="51.816" y1="1.016" x2="52.324" y2="1.524" layer="51"/>
-<text x="5.334" y="6.731" size="0.9144" layer="51" font="vector" ratio="14">8.5</text>
-<text x="5.334" y="5.461" size="0.9144" layer="51" font="vector" ratio="14">8.6</text>
-<text x="7.874" y="6.731" size="0.9144" layer="51" font="vector" ratio="14">9.0</text>
-<text x="7.874" y="5.461" size="0.9144" layer="51" font="vector" ratio="14">8.7</text>
-<text x="10.414" y="6.731" size="0.9144" layer="51" font="vector" ratio="14">8.4</text>
-<text x="10.414" y="5.461" size="0.9144" layer="51" font="vector" ratio="14">9.1</text>
-<text x="12.954" y="6.731" size="0.9144" layer="51" font="vector" ratio="14">8.2</text>
-<text x="12.954" y="5.461" size="0.9144" layer="51" font="vector" ratio="14">8.3</text>
-<text x="15.494" y="6.731" size="0.9144" layer="51" font="vector" ratio="14">9.2</text>
-<text x="15.494" y="5.461" size="0.9144" layer="51" font="vector" ratio="14">5.3</text>
-<text x="18.034" y="6.731" size="0.9144" layer="51" font="vector" ratio="14">6.2</text>
-<text x="18.034" y="5.461" size="0.9144" layer="51" font="vector" ratio="14">9.3</text>
-<text x="20.574" y="6.731" size="0.9144" layer="51" font="vector" ratio="14">7.3</text>
-<text x="20.574" y="5.461" size="0.9144" layer="51" font="vector" ratio="14">6.3</text>
-<text x="23.114" y="6.731" size="0.9144" layer="51" font="vector" ratio="14">7.1</text>
-<text x="23.114" y="5.461" size="0.9144" layer="51" font="vector" ratio="14">7.2</text>
-<text x="25.654" y="6.731" size="0.9144" layer="51" font="vector" ratio="14">9.4</text>
-<text x="25.654" y="5.461" size="0.9144" layer="51" font="vector" ratio="14">7.0</text>
-<text x="28.194" y="6.731" size="0.9144" layer="51" font="vector" ratio="14">9.6</text>
-<text x="28.194" y="5.461" size="0.9144" layer="51" font="vector" ratio="14">9.5</text>
-<text x="30.734" y="6.731" size="0.9144" layer="51" font="vector" ratio="14">8.0</text>
-<text x="30.734" y="5.461" size="0.9144" layer="51" font="vector" ratio="14">9.7</text>
-<text x="33.274" y="6.731" size="0.9144" layer="51" font="vector" ratio="14">7.4</text>
-<text x="33.274" y="5.461" size="0.9144" layer="51" font="vector" ratio="14">7.5</text>
-<text x="35.687" y="6.731" size="0.9144" layer="51" font="vector" ratio="14">7.6</text>
-<text x="35.687" y="5.461" size="0.9144" layer="51" font="vector" ratio="14">7.7</text>
-<text x="37.973" y="6.731" size="0.762" layer="51" font="vector" ratio="14">10.0</text>
-<text x="37.973" y="5.4864" size="0.762" layer="51" font="vector" ratio="14">10.1</text>
-<text x="40.64" y="6.731" size="0.762" layer="51" font="vector" ratio="14">10.2</text>
-<text x="40.64" y="5.4864" size="0.762" layer="51" font="vector" ratio="14">10.3</text>
-<text x="43.307" y="6.731" size="0.762" layer="51" font="vector" ratio="14">10.4</text>
-<text x="43.307" y="5.4864" size="0.762" layer="51" font="vector" ratio="14">10.5</text>
 <attribute name="NAME" x="3.5306" y="5.461" size="0.7112" layer="25" font="vector" ratio="14"/>
 <attribute name="VALUE" x="5.08" y="-1.778" size="1.27" layer="27" ratio="10"/>
 <wire x1="49.53" y1="8.412" x2="49.53" y2="1.27" width="0.508" layer="2"/>

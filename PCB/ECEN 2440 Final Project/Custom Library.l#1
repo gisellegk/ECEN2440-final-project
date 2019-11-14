@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -2086,9 +2086,47 @@
 <connect gate="MSP432" pin="39" pad="P6.5"/>
 <connect gate="MSP432" pin="4" pad="P5.7"/>
 <connect gate="MSP432" pin="40" pad="P6.4"/>
+<connect gate="MSP432" pin="41" pad="GND11"/>
+<connect gate="MSP432" pin="42" pad="GND10"/>
+<connect gate="MSP432" pin="43" pad="3V3C"/>
+<connect gate="MSP432" pin="44" pad="3V3B"/>
+<connect gate="MSP432" pin="45" pad="5VB"/>
+<connect gate="MSP432" pin="46" pad="5VA"/>
+<connect gate="MSP432" pin="47" pad="10.5"/>
+<connect gate="MSP432" pin="48" pad="10.4"/>
+<connect gate="MSP432" pin="49" pad="10.3"/>
 <connect gate="MSP432" pin="5" pad="RST"/>
+<connect gate="MSP432" pin="50" pad="10.2"/>
+<connect gate="MSP432" pin="51" pad="10.1"/>
+<connect gate="MSP432" pin="52" pad="10.0"/>
+<connect gate="MSP432" pin="53" pad="7.7"/>
+<connect gate="MSP432" pin="54" pad="7.6"/>
+<connect gate="MSP432" pin="55" pad="7.5"/>
+<connect gate="MSP432" pin="56" pad="7.4"/>
+<connect gate="MSP432" pin="57" pad="9.7"/>
+<connect gate="MSP432" pin="58" pad="8.0"/>
+<connect gate="MSP432" pin="59" pad="9.5"/>
 <connect gate="MSP432" pin="6" pad="P1.6"/>
+<connect gate="MSP432" pin="60" pad="9.6"/>
+<connect gate="MSP432" pin="61" pad="7.0"/>
+<connect gate="MSP432" pin="62" pad="9.4"/>
+<connect gate="MSP432" pin="63" pad="7.2"/>
+<connect gate="MSP432" pin="64" pad="7.1"/>
+<connect gate="MSP432" pin="65" pad="6.3"/>
+<connect gate="MSP432" pin="66" pad="7.3"/>
+<connect gate="MSP432" pin="67" pad="9.3"/>
+<connect gate="MSP432" pin="68" pad="6.2"/>
+<connect gate="MSP432" pin="69" pad="5.3"/>
 <connect gate="MSP432" pin="7" pad="P1.7"/>
+<connect gate="MSP432" pin="70" pad="9.2"/>
+<connect gate="MSP432" pin="71" pad="8.3"/>
+<connect gate="MSP432" pin="72" pad="8.2"/>
+<connect gate="MSP432" pin="73" pad="9.1"/>
+<connect gate="MSP432" pin="74" pad="8.4"/>
+<connect gate="MSP432" pin="75" pad="8.7"/>
+<connect gate="MSP432" pin="76" pad="9.0"/>
+<connect gate="MSP432" pin="77" pad="8.6"/>
+<connect gate="MSP432" pin="78" pad="8.5"/>
 <connect gate="MSP432" pin="8" pad="P5.0"/>
 <connect gate="MSP432" pin="9" pad="P5.2"/>
 </connects>
