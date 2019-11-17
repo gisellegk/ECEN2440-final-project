@@ -157,20 +157,20 @@
                     </AttachedParts>
                 </BodyTube>
                 <BodyTube>
-                    <KnownMass>168.08103729262055</KnownMass>
+                    <KnownMass>238.11480283121188</KnownMass>
                     <Density>688.794</Density>
                     <Material>Cardboard</Material>
                     <Name>Lower Body tube</Name>
                     <KnownCG>0.0</KnownCG>
                     <UseKnownCG>0</UseKnownCG>
                     <Xb>0.0</Xb>
-                    <CalcMass>168.08103729262055</CalcMass>
-                    <CalcCG>304.79999999999995</CalcCG>
+                    <CalcMass>238.11480283121188</CalcMass>
+                    <CalcCG>431.79999999999995</CalcCG>
                     <DensityType>0</DensityType>
                     <RadialLoc>0.0</RadialLoc>
                     <RadialAngle>0.0</RadialAngle>
                     <LocationMode>0</LocationMode>
-                    <Len>609.5999999999999</Len>
+                    <Len>863.5999999999999</Len>
                     <FinishCode>1</FinishCode>
                     <SerialNo>6</SerialNo>
                     <OD>101.6</OD>
