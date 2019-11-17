@@ -1,15 +1,21 @@
 */Debug/*
-
 .jxbrowser-data/*
 .metadata/*
-
 RemoteSystemsTempFiles/*
 /.metadata/
 */.gitignore
 */.settings/*
-
 */.launches/*
-*.s#*
 
+# eagle files
+*.s#*
 *.b#*
+*.l#*
 *.job
+
+# ltspice
+*.fft
+*.imp
+*.log
+*.op.raw
+*.raw
