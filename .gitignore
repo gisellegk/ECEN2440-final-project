@@ -1,7 +1,9 @@
+#CCS (hopefully)
+
 */Debug/*
-.jxbrowser-data/*
-.metadata/*
-RemoteSystemsTempFiles/*
+Code/.jxbrowser-data/*
+Code/.metadata/*
+Code/RemoteSystemsTempFiles/*
 /.metadata/
 */.gitignore
 */.settings/*
