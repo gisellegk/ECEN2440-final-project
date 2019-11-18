@@ -840,27 +840,6 @@ push-push type</description>
 <wire x1="30.48" y1="2.286" x2="31.496" y2="1.27" width="0.2032" layer="2"/>
 <wire x1="31.496" y1="1.27" x2="31.75" y2="1.27" width="0.2032" layer="2"/>
 </package>
-<package name="LDO-S-816">
-<wire x1="2.8324" y1="1.2694" x2="2.8324" y2="0.4106" width="0.2032" layer="21"/>
-<wire x1="2.9" y1="0" x2="0" y2="0" width="0.1524" layer="51"/>
-<wire x1="-0.0124" y1="0.4106" x2="-0.0124" y2="1.2694" width="0.2032" layer="21"/>
-<wire x1="0" y1="1.6" x2="2.9" y2="1.6" width="0.1524" layer="51"/>
-<wire x1="1.1416" y1="1.6504" x2="1.6784" y2="1.6504" width="0.2032" layer="21"/>
-<wire x1="2.9" y1="1.6" x2="2.9" y2="0" width="0.1524" layer="51"/>
-<wire x1="0" y1="1.6" x2="0" y2="0" width="0.1524" layer="51"/>
-<smd name="EXT" x="0.46" y="-0.4601" dx="0.55" dy="1.2" layer="1"/>
-<smd name="VSS" x="1.41" y="-0.4601" dx="0.55" dy="1.2" layer="1"/>
-<smd name="ON/OFF" x="2.36" y="-0.4601" dx="0.55" dy="1.2" layer="1"/>
-<smd name="VIN" x="2.36" y="2.0401" dx="0.55" dy="1.2" layer="1"/>
-<smd name="VOUT" x="0.46" y="2.0401" dx="0.55" dy="1.2" layer="1"/>
-<rectangle x1="0.21" y1="-0.66" x2="0.71" y2="-0.01" layer="51"/>
-<rectangle x1="1.16" y1="-0.66" x2="1.66" y2="-0.01" layer="51"/>
-<rectangle x1="2.11" y1="-0.66" x2="2.61" y2="-0.01" layer="51"/>
-<rectangle x1="2.11" y1="1.59" x2="2.61" y2="2.24" layer="51"/>
-<rectangle x1="0.21" y1="1.59" x2="0.71" y2="2.24" layer="51"/>
-<text x="-0.495" y="0.84" size="0.6096" layer="25" font="vector" ratio="20" rot="R90" align="bottom-center">&gt;NAME</text>
-<text x="3.95" y="0.84" size="0.6096" layer="27" font="vector" ratio="20" rot="R90" align="bottom-center">&gt;VALUE</text>
-</package>
 </packages>
 <symbols>
 <symbol name="ALTIMETER">
@@ -973,17 +952,6 @@ push-push type</description>
 <wire x1="50.8" y1="38.1" x2="-53.34" y2="38.1" width="0.254" layer="94"/>
 <text x="-7.62" y="-50.8" size="1.778" layer="94">MSP432</text>
 </symbol>
-<symbol name="LDO-S-816">
-<wire x1="0" y1="0" x2="0" y2="17.78" width="0.254" layer="94"/>
-<wire x1="0" y1="17.78" x2="27.94" y2="17.78" width="0.254" layer="94"/>
-<wire x1="27.94" y1="17.78" x2="27.94" y2="0" width="0.254" layer="94"/>
-<wire x1="27.94" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
-<pin name="P$1" x="22.86" y="-5.08" length="middle" rot="R90"/>
-<pin name="P$2" x="15.24" y="-5.08" length="middle" rot="R90"/>
-<pin name="P$3" x="5.08" y="-5.08" length="middle" rot="R90"/>
-<pin name="P$4" x="7.62" y="22.86" length="middle" rot="R270"/>
-<pin name="P$5" x="20.32" y="22.86" length="middle" rot="R270"/>
-</symbol>
 </symbols>
 <devicesets>
 <deviceset name="ALTIMETER">
@@ -1089,25 +1057,6 @@ push-push type</description>
 <connect gate="MSP432" pin="78" pad="8.5"/>
 <connect gate="MSP432" pin="8" pad="P5.0"/>
 <connect gate="MSP432" pin="9" pad="P5.2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="LDO-S-816">
-<gates>
-<gate name="G$1" symbol="LDO-S-816" x="0" y="5.08"/>
-</gates>
-<devices>
-<device name="" package="LDO-S-816">
-<connects>
-<connect gate="G$1" pin="P$1" pad="ON/OFF"/>
-<connect gate="G$1" pin="P$2" pad="VSS"/>
-<connect gate="G$1" pin="P$3" pad="EXT"/>
-<connect gate="G$1" pin="P$4" pad="VOUT"/>
-<connect gate="G$1" pin="P$5" pad="VIN"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -1845,9 +1794,7 @@ push-push type</description>
 <part name="SD_BREAKOUT" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X7" device="" package3d_urn="urn:adsk.eagle:package:22477/2"/>
 <part name="+3V7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="GND14" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="U$5" library="Custom Library" deviceset="LDO-S-816" device=""/>
 <part name="GND15" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="GND16" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="P+3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="P+4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
@@ -1920,12 +1867,8 @@ push-push type</description>
 <instance part="GND14" gate="1" x="96.52" y="83.82" smashed="yes" rot="R270">
 <attribute name="VALUE" x="93.98" y="86.36" size="1.778" layer="96" rot="R270"/>
 </instance>
-<instance part="U$5" gate="G$1" x="86.36" y="-63.5" smashed="yes" rot="R90"/>
 <instance part="GND15" gate="1" x="43.18" y="-53.34" smashed="yes">
 <attribute name="VALUE" x="40.64" y="-55.88" size="1.778" layer="96"/>
-</instance>
-<instance part="GND16" gate="1" x="93.98" y="-48.26" smashed="yes" rot="R90">
-<attribute name="VALUE" x="96.52" y="-50.8" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="P+2" gate="VCC" x="53.34" y="50.8" smashed="yes" rot="R90">
 <attribute name="VALUE" x="55.88" y="48.26" size="1.778" layer="96" rot="R180"/>
@@ -2148,10 +2091,6 @@ push-push type</description>
 <pinref part="GND15" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="U$5" gate="G$1" pin="P$2"/>
-<pinref part="GND16" gate="1" pin="GND"/>
-</segment>
-<segment>
 <pinref part="U$3" gate="MSP432" pin="29"/>
 <pinref part="GND17" gate="1" pin="GND"/>
 </segment>
@@ -2235,10 +2174,6 @@ push-push type</description>
 <pinref part="BATTERY" gate="G$1" pin="2"/>
 <wire x1="25.4" y1="-48.26" x2="43.18" y2="-48.26" width="0.1524" layer="91"/>
 <pinref part="P+1" gate="VCC" pin="VCC"/>
-<pinref part="U$5" gate="G$1" pin="P$5"/>
-<wire x1="43.18" y1="-48.26" x2="43.18" y2="-43.18" width="0.1524" layer="91"/>
-<wire x1="43.18" y1="-43.18" x2="63.5" y2="-43.18" width="0.1524" layer="91"/>
-<junction x="43.18" y="-48.26"/>
 </segment>
 <segment>
 <pinref part="U$3" gate="MSP432" pin="30"/>
