@@ -17767,7 +17767,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="RADIO" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X8" device="" package3d_urn="urn:adsk.eagle:package:22409/2"/>
 <part name="SJ1" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="SJ" device="" package3d_urn="urn:adsk.eagle:package:15471/1"/>
 <part name="JP1" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X1" device="" package3d_urn="urn:adsk.eagle:package:22485/2"/>
-<part name="BATTERYPOWER" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X2" device="" package3d_urn="urn:adsk.eagle:package:22435/2"/>
+<part name="BATT" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X2" device="" package3d_urn="urn:adsk.eagle:package:22435/2"/>
 <part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="LM317" library="Custom Library" deviceset="LM317" device=""/>
@@ -17857,7 +17857,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <attribute name="NAME" x="97.79" y="5.715" size="1.778" layer="95"/>
 <attribute name="VALUE" x="97.79" y="-2.54" size="1.778" layer="96"/>
 </instance>
-<instance part="BATTERYPOWER" gate="G$1" x="20.32" y="96.52" smashed="yes" rot="R180">
+<instance part="BATT" gate="G$1" x="20.32" y="96.52" smashed="yes" rot="R180">
 <attribute name="NAME" x="26.67" y="90.805" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="26.67" y="101.6" size="1.778" layer="96" rot="R180"/>
 </instance>
@@ -17996,7 +17996,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <segment>
 <pinref part="GND2" gate="1" pin="GND"/>
 <wire x1="35.56" y1="93.98" x2="35.56" y2="86.36" width="0.1524" layer="91"/>
-<pinref part="BATTERYPOWER" gate="G$1" pin="1"/>
+<pinref part="BATT" gate="G$1" pin="1"/>
 <wire x1="22.86" y1="93.98" x2="35.56" y2="93.98" width="0.1524" layer="91"/>
 <pinref part="CIN" gate="G$1" pin="-"/>
 <wire x1="43.18" y1="86.36" x2="35.56" y2="86.36" width="0.1524" layer="91"/>
@@ -18105,7 +18105,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </net>
 <net name="VCC" class="0">
 <segment>
-<pinref part="BATTERYPOWER" gate="G$1" pin="2"/>
+<pinref part="BATT" gate="G$1" pin="2"/>
 <pinref part="P+1" gate="VCC" pin="VCC"/>
 <wire x1="22.86" y1="96.52" x2="33.02" y2="96.52" width="0.1524" layer="91"/>
 <pinref part="LM317" gate="G$1" pin="P$2"/>
