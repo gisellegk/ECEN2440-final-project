@@ -52,11 +52,8 @@ void send_data(uint8_t address, uint8_t data) {
         set_i2c_address(address);   // set slave address
         set_i2c_byte_counter(2);
         send_start();               // start communication
-        uint8_t check;
         EUSCI_B0->TXBUF = data;  // send register being written to
-        while((EUSCI_B0->IFG  & EUSCI_B_IFG_TXIFG0)) { // deleted not
-            check = EUSCI_B0->IFG  & EUSCI_B_IFG_TXIFG0;
-        }
+        while(!(EUSCI_B0->IFG  & EUSCI_B_IFG_TXIFG0));
 
         send_stop();
 }
@@ -116,15 +113,13 @@ uint8_t read_data(uint8_t address) {
 
 void send_start(void) {
     EUSCI_B0->CTLW0 |= EUSCI_B_CTLW0_TXSTT;  // send start
-    uint16_t check = 0x0;
-    check = EUSCI_B0->CTLW0 & EUSCI_B_CTLW0_TXSTT;
     while(EUSCI_B0->CTLW0 & EUSCI_B_CTLW0_TXSTT);  // wait for start and Address to be sent
 }
 
 
 void send_stop(void) {
     EUSCI_B0->CTLW0 |= EUSCI_B_CTLW0_TXSTP;  // send stop
-    while(EUSCI_B0->CTLW0 & EUSCI_B_CTLW0_TXSTT);  // wait until stop is sent
+    while(EUSCI_B0->CTLW0 & EUSCI_B_CTLW0_TXSTT);  // wait until stop is sent // ask about why this is TXSTT instead of TXSTP
 }
 
 void set_as_transmitter(void) {

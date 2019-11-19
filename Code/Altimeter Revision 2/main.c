@@ -13,9 +13,6 @@ int main(void)
 {
     WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;     // stop watchdog timer
 
-    P2->DIR |= BIT4;
-    P2->OUT |= BIT4;
-
     config_i2c();
     send_start();
 
@@ -27,11 +24,9 @@ int main(void)
 
     send_data(ICP10111, READ_HEADER);
 
-    uint8_t ACK = read_data(ICP10111);
-
-    while(ACK) {
+    while((EUSCI_B0->IFG & EUSCI_B_IFG_NACKIFG) == EUSCI_B_IFG_NACKIFG) {
+        EUSCI_B0->IFG &= ~EUSCI_B_IFG_NACKIFG;
         send_data(ICP10111, READ_HEADER);
-        ACK = read_data(ICP10111);
     }
 
     uint8_t pressure_mmsb = read_data(ICP10111);
