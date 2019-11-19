@@ -1,5 +1,6 @@
 #CCS (hopefully)
-
+/jxbrowser-data/*
+RemoteSystemTempFiles/*
 */Debug/*
 Code/.jxbrowser-data/*
 Code/.metadata/*
