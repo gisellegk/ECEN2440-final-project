@@ -10,7 +10,7 @@
 
 #define fBRCLK 12000000 // Hz - input clock freq.
 
-char []
+//char []
 
 void config_uart(uint8_t baud){
     // set UCSWRST

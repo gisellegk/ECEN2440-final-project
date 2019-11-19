@@ -116,7 +116,7 @@ uint8_t read_data(uint8_t address) {
 
 void send_start(void) {
     EUSCI_B0->CTLW0 |= EUSCI_B_CTLW0_TXSTT;  // send start
-    uint16_t check = 0x4454;
+    uint16_t check = 0x0;
     check = EUSCI_B0->CTLW0 & EUSCI_B_CTLW0_TXSTT;
     while(EUSCI_B0->CTLW0 & EUSCI_B_CTLW0_TXSTT);  // wait for start and Address to be sent
 }
