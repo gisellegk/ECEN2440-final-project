@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.5.1">
+<eagle version="9.2.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -10438,8 +10438,6 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="124.46" y1="73.66" x2="116.84" y2="73.66" width="0.1524" layer="91"/>
 <label x="116.84" y="73.66" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
-</net>
-<net name="RADIO_PD" class="0">
 <segment>
 <pinref part="U$3" gate="MSP432" pin="35"/>
 <wire x1="86.36" y1="40.64" x2="88.9" y2="40.64" width="0.1524" layer="91"/>
