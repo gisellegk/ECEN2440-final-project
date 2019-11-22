@@ -1,0 +1,8 @@
+I have added these files (symbols and subcircuit models) to the LTSpiceIV directory to be able to use 
+them in the simulation. 
+
+I do not own these models nor have I created them! I just bundled them together to make life easier.
+
+Go to C:\Program Files\LTC\LTspiceIV\lib and place the files into the same subdirectory as they are in now.
+
+For example put the file LM317.sub into the directory sub and the file LM317.asy into the folder sym\Misc

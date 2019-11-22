@@ -5,7 +5,7 @@ WINDOW 0 0 -40 Bottom 2
 WINDOW 3 3 -46 Top 2
 SYMATTR Prefix X
 SYMATTR Value LM317
-SYMATTR ModelFile D:\Users\erics\Documents\LM317.sub.txt
+SYMATTR ModelFile C:\Users\Giselle\Desktop\classes\ecen 2440\ECEN2440-final-project\ltspice\LM317\LM317.sub.txt
 PIN -64 0 LEFT 8
 PINATTR PinName VIN
 PINATTR SpiceOrder 1
