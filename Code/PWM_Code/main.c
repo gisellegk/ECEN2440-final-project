@@ -1,9 +1,41 @@
 #include "msp.h"
-
-
 /**
  * main.c
  */
+int set_duty_cycle(){
+   int i;
+    for(i = 0; i = 167; i++){
+    TIMER_A0->CCR[0] = (sin_values[i])
+            i = i % 167;
+    }
+void TA0_0_IRQHandler(void){
+if(TIMER_A0 ->CCTL[0] & TIMER_A_CCTLN_CCIFG){  // checks if the interrupt flag is up
+    set_duty_cycle(float sin_values[167]);
+TIMER_A0 ->CCTL[0] &= ~TIMER_A_CCTLN_CCIFG; //Resets the interupppt flag
+}
+int pwm(){
+P2 -> DIR |= BIT4; // inialize p2.4 as timerA0 output
+P2 -> OUT |= BIT4;
+//P2 -> SEL0 |= BIT4; NOT SURE IF WE NEED THESE.....
+//P2 -> SEL1 &= ~BIT4;
+
+TIMER_A0 ->CTL |=TIMER_A_CTL_CLR ; //CLEAR THE CLOCK
+TIMER_A0 -> CTL |=TIMER_A_CTL_SSEL__SMCLK; //SELECT CLOCK
+//TIMER_A0 -> CCTL[1] |= TIMER_A_CCTLN_OUTMOD_7; THIS FUNCTION RESETS THE TIMER A0 CLOCK(MIGHT NEED TO BE TAMPERED WITH)
+TIMER_A0 ->CTL |= BIT6;// clock input divider of 2
+TIMER_A0 ->CCTL[0] |= TIMER_A_CCTLN_CCIE; //enables clock interrupt
+    TIMER_A0 ->CCTL[0] &= ~0b1; //sets flag to low
+
+    NVIC_SetPriority(TA0_0_IRQn,2); //register interrupt function in NVIC
+    NVIC_EnableIRQ(TA0_0_IRQn); //Enable the IRQ of the NVIC
+// here we want to set the duty cycle of the pwm
+    set_duty_cycle(float sin_values[167]);
+}
+void start_pwm(void){
+    TIMER_A0->CTL |= TIMER_A_CTL_MC__UP;
+     }
+
+
 void main(void)
 {
 	WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;		// stop watchdog timer
@@ -38,3 +70,5 @@ void main(void)
 
 
 }
+
+int
