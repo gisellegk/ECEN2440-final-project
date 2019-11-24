@@ -20416,12 +20416,12 @@ Source: www.bourns.com .. 6000_series.pdf</description>
 <parts>
 <part name="U$4" library="Custom Library" deviceset="RADIO" device=""/>
 <part name="GND3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="100R"/>
-<part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="100R"/>
-<part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="100R"/>
-<part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="500n"/>
-<part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="500n"/>
-<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="500n"/>
+<part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="0R"/>
+<part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="0R"/>
+<part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="0R"/>
+<part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2"/>
+<part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2"/>
+<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2"/>
 <part name="GND6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND8" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -20454,8 +20454,8 @@ Source: www.bourns.com .. 6000_series.pdf</description>
 <part name="R8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2"/>
 <part name="R9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2"/>
 <part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="CIN1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="A" package3d_urn="urn:adsk.eagle:package:23418/2"/>
-<part name="CIN2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="A" package3d_urn="urn:adsk.eagle:package:23418/2"/>
+<part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="A" package3d_urn="urn:adsk.eagle:package:23418/2"/>
+<part name="C6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="A" package3d_urn="urn:adsk.eagle:package:23418/2"/>
 <part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="500n"/>
 </parts>
 <sheets>
@@ -20605,11 +20605,11 @@ GNDA = RF ground</text>
 <instance part="GND2" gate="1" x="17.78" y="58.42" smashed="yes">
 <attribute name="VALUE" x="15.24" y="55.88" size="1.778" layer="96"/>
 </instance>
-<instance part="CIN1" gate="G$1" x="104.14" y="96.52" smashed="yes">
+<instance part="C5" gate="G$1" x="104.14" y="96.52" smashed="yes">
 <attribute name="NAME" x="105.156" y="97.155" size="1.778" layer="95"/>
 <attribute name="VALUE" x="105.156" y="92.329" size="1.778" layer="96"/>
 </instance>
-<instance part="CIN2" gate="G$1" x="116.84" y="96.52" smashed="yes">
+<instance part="C6" gate="G$1" x="116.84" y="96.52" smashed="yes">
 <attribute name="NAME" x="117.856" y="97.155" size="1.778" layer="95"/>
 <attribute name="VALUE" x="117.856" y="92.329" size="1.778" layer="96"/>
 </instance>
@@ -20722,8 +20722,8 @@ GNDA = RF ground</text>
 <junction x="104.14" y="86.36"/>
 <wire x1="116.84" y1="91.44" x2="116.84" y2="86.36" width="0.1524" layer="91"/>
 <junction x="116.84" y="86.36"/>
-<pinref part="CIN2" gate="G$1" pin="-"/>
-<pinref part="CIN1" gate="G$1" pin="-"/>
+<pinref part="C6" gate="G$1" pin="-"/>
+<pinref part="C5" gate="G$1" pin="-"/>
 </segment>
 <segment>
 <pinref part="GND14" gate="1" pin="GND"/>
@@ -20950,14 +20950,14 @@ GNDA = RF ground</text>
 <segment>
 <pinref part="R9" gate="G$1" pin="2"/>
 <wire x1="116.84" y1="101.6" x2="116.84" y2="99.06" width="0.1524" layer="91"/>
-<pinref part="CIN2" gate="G$1" pin="+"/>
+<pinref part="C6" gate="G$1" pin="+"/>
 </segment>
 </net>
 <net name="N$9" class="0">
 <segment>
 <pinref part="R8" gate="G$1" pin="2"/>
 <wire x1="104.14" y1="101.6" x2="104.14" y2="99.06" width="0.1524" layer="91"/>
-<pinref part="CIN1" gate="G$1" pin="+"/>
+<pinref part="C5" gate="G$1" pin="+"/>
 </segment>
 </net>
 </nets>
