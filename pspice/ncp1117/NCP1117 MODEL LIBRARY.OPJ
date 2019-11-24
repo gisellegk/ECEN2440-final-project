@@ -1,0 +1,19 @@
+(ExpressProject "NCP1117 MODEL LIBRARY"
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library")
+    (File ".\NCP1117 MODEL LIBRARY.OLB"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (NoModify))
+  (Folder "Outputs")
+  (Folder "Translator"
+    (File ".\NCP1117 MODEL LIBRARY.ERR"
+      (Type "Report")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" ".\NCP1117 MODEL LIBRARY.OLB")
+      (Path "Translator")
+      (Select "Design Resources" ".\NCP1117 MODEL LIBRARY.OLB")))))

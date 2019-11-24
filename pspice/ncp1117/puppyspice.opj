@@ -15,12 +15,9 @@
   (Folder "Outputs")
   (Folder "PSpice Resources"
     (Folder "Simulation Profiles")
-    (Folder "Model Libraries"
-      (Sort User))
-    (Folder "Stimulus Files"
-      (Sort User))
-    (Folder "Include Files"
-      (Sort User)))
+    (Folder "Model Libraries")
+    (Folder "Stimulus Files")
+    (Folder "Include Files"))
   (DefaultLibraryBrowseDirectory "library\PSpice")
   (MPSSessionName "Giselle")
   (PartMRUSelector)
