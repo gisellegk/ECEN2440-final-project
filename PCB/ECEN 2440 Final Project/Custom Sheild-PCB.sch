@@ -18895,6 +18895,12 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="A" package3d_urn="urn:adsk.eagle:package:23418/2"/>
 <part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="+3V3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
+<part name="VBATT" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X2" device="" package3d_urn="urn:adsk.eagle:package:22435/2"/>
+<part name="P+2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
+<part name="GND11" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="3V3OUT" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X2" device="" package3d_urn="urn:adsk.eagle:package:22435/2"/>
+<part name="+3V8" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
+<part name="GND12" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -18942,12 +18948,12 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="GND9" gate="1" x="121.92" y="-5.08" smashed="yes" rot="R270">
 <attribute name="VALUE" x="119.38" y="-2.54" size="1.778" layer="96" rot="R270"/>
 </instance>
-<instance part="MAINBATTERY" gate="G$1" x="104.14" y="101.6" smashed="yes" rot="R180">
-<attribute name="NAME" x="110.49" y="95.885" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="110.49" y="106.68" size="1.778" layer="96" rot="R180"/>
+<instance part="MAINBATTERY" gate="G$1" x="104.14" y="96.52" smashed="yes" rot="R180">
+<attribute name="NAME" x="110.49" y="90.805" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="110.49" y="101.6" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="P+1" gate="VCC" x="114.3" y="106.68" smashed="yes">
-<attribute name="VALUE" x="111.76" y="104.14" size="1.778" layer="96" rot="R90"/>
+<instance part="P+1" gate="VCC" x="114.3" y="101.6" smashed="yes">
+<attribute name="VALUE" x="111.76" y="99.06" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="TEENSY" gate="A" x="132.08" y="-10.16" smashed="yes">
 <attribute name="NAME" x="125.73" y="-1.905" size="1.778" layer="95"/>
@@ -18963,8 +18969,8 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="GND14" gate="1" x="147.32" y="-20.32" smashed="yes" rot="R270">
 <attribute name="VALUE" x="144.78" y="-17.78" size="1.778" layer="96" rot="R270"/>
 </instance>
-<instance part="GND15" gate="1" x="114.3" y="91.44" smashed="yes">
-<attribute name="VALUE" x="111.76" y="88.9" size="1.778" layer="96"/>
+<instance part="GND15" gate="1" x="114.3" y="86.36" smashed="yes">
+<attribute name="VALUE" x="111.76" y="83.82" size="1.778" layer="96"/>
 </instance>
 <instance part="GND17" gate="1" x="53.34" y="48.26" smashed="yes" rot="R270">
 <attribute name="VALUE" x="50.8" y="50.8" size="1.778" layer="96" rot="R270"/>
@@ -19044,22 +19050,42 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="P+3" gate="VCC" x="160.02" y="40.64" smashed="yes">
 <attribute name="VALUE" x="157.48" y="38.1" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="U$1" gate="G$1" x="144.78" y="91.44" smashed="yes">
-<attribute name="NAME" x="147.32" y="86.36" size="1.778" layer="94"/>
+<instance part="U$1" gate="G$1" x="144.78" y="86.36" smashed="yes">
+<attribute name="NAME" x="147.32" y="81.28" size="1.778" layer="94"/>
 </instance>
-<instance part="C4" gate="G$1" x="119.38" y="93.98" smashed="yes">
-<attribute name="NAME" x="120.396" y="94.615" size="1.778" layer="95"/>
-<attribute name="VALUE" x="120.396" y="89.789" size="1.778" layer="96"/>
+<instance part="C4" gate="G$1" x="119.38" y="88.9" smashed="yes">
+<attribute name="NAME" x="120.396" y="89.535" size="1.778" layer="95"/>
+<attribute name="VALUE" x="120.396" y="84.709" size="1.778" layer="96"/>
 </instance>
-<instance part="C5" gate="G$1" x="165.1" y="93.98" smashed="yes">
-<attribute name="NAME" x="166.116" y="94.615" size="1.778" layer="95"/>
-<attribute name="VALUE" x="166.116" y="89.789" size="1.778" layer="96"/>
+<instance part="C5" gate="G$1" x="165.1" y="88.9" smashed="yes">
+<attribute name="NAME" x="166.116" y="89.535" size="1.778" layer="95"/>
+<attribute name="VALUE" x="166.116" y="84.709" size="1.778" layer="96"/>
 </instance>
-<instance part="GND2" gate="1" x="144.78" y="76.2" smashed="yes">
-<attribute name="VALUE" x="142.24" y="73.66" size="1.778" layer="96"/>
+<instance part="GND2" gate="1" x="144.78" y="71.12" smashed="yes">
+<attribute name="VALUE" x="142.24" y="68.58" size="1.778" layer="96"/>
 </instance>
-<instance part="+3V3" gate="G$1" x="165.1" y="109.22" smashed="yes">
-<attribute name="VALUE" x="162.56" y="104.14" size="1.778" layer="96" rot="R90"/>
+<instance part="+3V3" gate="G$1" x="165.1" y="104.14" smashed="yes">
+<attribute name="VALUE" x="162.56" y="99.06" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="VBATT" gate="G$1" x="144.78" y="116.84" smashed="yes" rot="R180">
+<attribute name="NAME" x="151.13" y="111.125" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="151.13" y="121.92" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="P+2" gate="VCC" x="154.94" y="121.92" smashed="yes">
+<attribute name="VALUE" x="152.4" y="119.38" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="GND11" gate="1" x="154.94" y="109.22" smashed="yes">
+<attribute name="VALUE" x="152.4" y="106.68" size="1.778" layer="96"/>
+</instance>
+<instance part="3V3OUT" gate="G$1" x="119.38" y="116.84" smashed="yes" rot="R180">
+<attribute name="NAME" x="125.73" y="111.125" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="125.73" y="121.92" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="+3V8" gate="G$1" x="129.54" y="121.92" smashed="yes">
+<attribute name="VALUE" x="127" y="116.84" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="GND12" gate="1" x="129.54" y="109.22" smashed="yes">
+<attribute name="VALUE" x="127" y="106.68" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -19226,8 +19252,8 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </segment>
 <segment>
 <pinref part="MAINBATTERY" gate="G$1" pin="1"/>
-<wire x1="106.68" y1="99.06" x2="114.3" y2="99.06" width="0.1524" layer="91"/>
-<wire x1="114.3" y1="99.06" x2="114.3" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="93.98" x2="114.3" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="93.98" x2="114.3" y2="88.9" width="0.1524" layer="91"/>
 <pinref part="GND15" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -19267,15 +19293,27 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </segment>
 <segment>
 <pinref part="C4" gate="G$1" pin="-"/>
-<wire x1="119.38" y1="88.9" x2="119.38" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="119.38" y1="78.74" x2="144.78" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="83.82" x2="119.38" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="73.66" x2="144.78" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="GND"/>
-<wire x1="144.78" y1="78.74" x2="165.1" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="144.78" y1="83.82" x2="144.78" y2="78.74" width="0.1524" layer="91"/>
-<junction x="144.78" y="78.74"/>
+<wire x1="144.78" y1="73.66" x2="165.1" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="78.74" x2="144.78" y2="73.66" width="0.1524" layer="91"/>
+<junction x="144.78" y="73.66"/>
 <pinref part="C5" gate="G$1" pin="-"/>
-<wire x1="165.1" y1="88.9" x2="165.1" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="83.82" x2="165.1" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="GND2" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="GND11" gate="1" pin="GND"/>
+<wire x1="154.94" y1="111.76" x2="154.94" y2="114.3" width="0.1524" layer="91"/>
+<pinref part="VBATT" gate="G$1" pin="1"/>
+<wire x1="154.94" y1="114.3" x2="147.32" y2="114.3" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="3V3OUT" gate="G$1" pin="1"/>
+<wire x1="121.92" y1="114.3" x2="129.54" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="114.3" x2="129.54" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="GND12" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="TEENSY_TX" class="0">
@@ -19343,12 +19381,18 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="VO"/>
-<wire x1="160.02" y1="101.6" x2="165.1" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="160.02" y1="96.52" x2="165.1" y2="96.52" width="0.1524" layer="91"/>
 <pinref part="C5" gate="G$1" pin="+"/>
-<wire x1="165.1" y1="101.6" x2="165.1" y2="96.52" width="0.1524" layer="91"/>
-<wire x1="165.1" y1="101.6" x2="165.1" y2="106.68" width="0.1524" layer="91"/>
-<junction x="165.1" y="101.6"/>
+<wire x1="165.1" y1="96.52" x2="165.1" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="96.52" x2="165.1" y2="101.6" width="0.1524" layer="91"/>
+<junction x="165.1" y="96.52"/>
 <pinref part="+3V3" gate="G$1" pin="+3V3"/>
+</segment>
+<segment>
+<pinref part="3V3OUT" gate="G$1" pin="2"/>
+<wire x1="121.92" y1="116.84" x2="129.54" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="116.84" x2="129.54" y2="119.38" width="0.1524" layer="91"/>
+<pinref part="+3V8" gate="G$1" pin="+3V3"/>
 </segment>
 </net>
 <net name="SD_CD1" class="0">
@@ -19366,27 +19410,33 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <net name="VCC" class="1">
 <segment>
 <pinref part="MAINBATTERY" gate="G$1" pin="2"/>
-<wire x1="106.68" y1="101.6" x2="114.3" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="114.3" y1="101.6" x2="114.3" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="96.52" x2="114.3" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="96.52" x2="114.3" y2="99.06" width="0.1524" layer="91"/>
 <pinref part="P+1" gate="VCC" pin="VCC"/>
 <pinref part="U$1" gate="G$1" pin="VCC"/>
-<wire x1="114.3" y1="101.6" x2="119.38" y2="101.6" width="0.1524" layer="91"/>
-<junction x="114.3" y="101.6"/>
+<wire x1="114.3" y1="96.52" x2="119.38" y2="96.52" width="0.1524" layer="91"/>
+<junction x="114.3" y="96.52"/>
 <pinref part="U$1" gate="G$1" pin="CTL"/>
-<wire x1="119.38" y1="101.6" x2="127" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="127" y1="101.6" x2="129.54" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="129.54" y1="93.98" x2="127" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="127" y1="93.98" x2="127" y2="101.6" width="0.1524" layer="91"/>
-<junction x="127" y="101.6"/>
+<wire x1="119.38" y1="96.52" x2="127" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="127" y1="96.52" x2="129.54" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="88.9" x2="127" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="127" y1="88.9" x2="127" y2="96.52" width="0.1524" layer="91"/>
+<junction x="127" y="96.52"/>
 <pinref part="C4" gate="G$1" pin="+"/>
-<wire x1="119.38" y1="96.52" x2="119.38" y2="101.6" width="0.1524" layer="91"/>
-<junction x="119.38" y="101.6"/>
+<wire x1="119.38" y1="91.44" x2="119.38" y2="96.52" width="0.1524" layer="91"/>
+<junction x="119.38" y="96.52"/>
 </segment>
 <segment>
 <pinref part="U$4" gate="G$1" pin="VBATT"/>
 <wire x1="157.48" y1="35.56" x2="160.02" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="160.02" y1="35.56" x2="160.02" y2="38.1" width="0.1524" layer="91"/>
 <pinref part="P+3" gate="VCC" pin="VCC"/>
+</segment>
+<segment>
+<pinref part="VBATT" gate="G$1" pin="2"/>
+<wire x1="147.32" y1="116.84" x2="154.94" y2="116.84" width="0.1524" layer="91"/>
+<pinref part="P+2" gate="VCC" pin="VCC"/>
+<wire x1="154.94" y1="116.84" x2="154.94" y2="119.38" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$1" class="0">
