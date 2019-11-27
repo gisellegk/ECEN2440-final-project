@@ -7,6 +7,7 @@
 
 #include "msp.h"
 #include "uart.h"
+#include "buffer.h"
 
 #define fBRCLK 12000000 // Hz - input clock freq.
 
@@ -68,7 +69,7 @@ void disable_uart(){
 void enable_interrupts(){
     EUSCI_A0->IFG &= ~(BIT1 | BIT0); // reset TX and RX interrupt flags
     // enable interrupts with UCRXIE or UCTXIE
-    EUSCI_A0->IE |= (BIT1 | BIT0);
+    EUSCI_A0->IE |= (BIT0); //just RX.
     NVIC_EnableIRQ(EUSCIA0_IRQn); //Enables global interrupts
     __NVIC_SetPriority(EUSCIA0_IRQn, 2); //Sets the priority of interrupt 8 to 2
 
@@ -84,14 +85,21 @@ void readUART(){
 
 
 void EUSCIA0_IRQHandler(){
-    if(EUSCI_A0->IFG & EUSCI_A_IFG_TXIFG){
+    if((EUSCI_A0->IFG & EUSCI_A_IFG_TXIFG)){
         // if we have more to transmit
         // put next char in UCAxTXBUF
         // this is automatically reset once it's written
-        EUSCI_A0->TXBUF = 0;
+        if(buffer_size > 0){
+            P2OUT ^= 0x2; // toggle led when this happens.
+            EUSCI_A0->TXBUF = buffer[buffer_size-1];
+            buffer_size--;
+        } else {
+            EUSCI_A0->IE &=~EUSCI_A_IE_TXIE;
+        }
+
     }
     if(EUSCI_A0->IFG & EUSCI_A_IFG_RXIFG){
-        P2OUT ^= 0x7; // toggle led when this happens.
+        P2OUT ^= 0x1; // toggle led when this happens.
         // set when character is received and loaded into UCAxRXBUF
         // Read character out of buffer
         uint8_t data = EUSCI_A0->RXBUF;
