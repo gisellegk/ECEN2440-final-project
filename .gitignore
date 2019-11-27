@@ -7,8 +7,9 @@ Code/.metadata/*
 Code/RemoteSystemsTempFiles/*
 /.metadata/
 */.gitignore
-*/.settings/*
-*/.launches/*
+Code/*/.gitignore
+Code/*/.settings/*
+Code/*/.launches/*
 
 # eagle files
 *.s#*
