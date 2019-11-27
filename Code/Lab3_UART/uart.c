@@ -59,6 +59,7 @@ void enable_uart(){
     // clear UCSWRST
     EUSCI_A0->CTLW0 &= ~EUSCI_A_CTLW0_SWRST;
     enable_interrupts();
+    EUSCI_A0->IFG |= (BIT1); // set TX flag?
 }
 
 void disable_uart(){
@@ -75,8 +76,15 @@ void enable_interrupts(){
 
 }
 
-void writeUART(){
-
+int write_uart(uint8_t byte){
+    if((buffer_size) != BUFFER_MAX){ // if not full
+        buffer[buffer_size] = byte;
+        buffer_size++; // increment size.
+        EUSCI_A0->IE |= EUSCI_A_IE_TXIE;
+        //EUSCI_A0->IFG |= (BIT1); // set TX flag?
+        return 1;
+    }
+    return 0;
 }
 
 void readUART(){
@@ -86,12 +94,10 @@ void readUART(){
 
 void EUSCIA0_IRQHandler(){
     if((EUSCI_A0->IFG & EUSCI_A_IFG_TXIFG)){
-        // if we have more to transmit
-        // put next char in UCAxTXBUF
-        // this is automatically reset once it's written
-        if(buffer_size > 0){
-            P2OUT ^= 0x2; // toggle led when this happens.
-            EUSCI_A0->TXBUF = buffer[buffer_size-1];
+        if(buffer_size > 0){ // if we have more to transmit
+            P2OUT ^= 0x2; // toggle led when this happens for debug
+            EUSCI_A0->TXBUF = buffer[buffer_size-1]; // put next char in UCAxTXBUF
+            // Manuel says that TXIFG is reset when you write to TXBUF, but tbh it doesn't happen???
             buffer_size--;
         } else {
             EUSCI_A0->IE &=~EUSCI_A_IE_TXIE;
@@ -104,7 +110,7 @@ void EUSCIA0_IRQHandler(){
         // Read character out of buffer
         uint8_t data = EUSCI_A0->RXBUF;
         // echo to tx
-        EUSCI_A0->TXBUF = data;
+        //EUSCI_A0->TXBUF = data;
         // automatically reset when UCAxRXBUF is read
     }
 

@@ -35,14 +35,8 @@ void main(void)
     //enable_interrupts();
 	// what else?
     while(1){
-        if((buffer_size) != BUFFER_MAX){ // if not full
-            buffer[buffer_size] = 'a' + (uint8_t)rand()%26; // add random number to next index of list.
-            buffer_size++; // increment size.
-            EUSCI_A0->IE |= EUSCI_A_IE_TXIE;
-            EUSCI_A0->IFG |= (BIT1); // set TX flag?
-            for(i = 0; i < 100000; i++); // wait a bit.
-
-        }
+        write_uart('a' + (uint8_t)rand()%26);  // add random number to next index of list.
+        for(i = 0; i < (100000); i++); // wait a bit.
 
     }
 }
