@@ -12,52 +12,63 @@
 
 //char []
 
-void config_uart(uint8_t baud){
+void config_uart(uint16_t baud){
+    //set p1.2 and p1.3 to UART mode
+    // This is the primary function of these ports, so we want to write 01 in SEL1 and SEL0
+    P1SEL0 |= BIT2 | BIT3; // writes 1 to bits 2 and 3
+    P1SEL1 &= ~(BIT2 | BIT3); // writes 0 to bits 2 and 3
+
     // set UCSWRST
     disable_uart();
 
     // initialize all eUSCI_A registers
     //// select SMCLK = 12MHz for this project
-    //UCA0CTLW0 |= 0b11 << UCSSEL_OFS; // apparently setting it to either 10b or 11b = SMCLK ?????
-    EUSCI_A0->CTLW0 |= 0x11 << EUSCI_A_CTLW0_SSEL_OFS;
+    EUSCI_A0->CTLW0 |= EUSCI_A_CTLW0_SSEL__SMCLK;
 
     //// BRDIV value (78) http://processors.wiki.ti.com/index.php/USCI_UART_Baud_Rate_Gen_Mode_Selection
-    //UCA0BRW = fBRCLK / baud;
-    EUSCI_A0->BRW = fBRCLK / baud;
+    //// 24.3.10 Setting a Baud Rate in slau356i
+    float N = fBRCLK / baud;
+    EUSCI_A0->BRW = (uint16_t)(N/16);
     //// UCxBRF = 2
-    UCA0MCTLW |= 0b10 << UCBRF_OFS;
-    UCA0MCTLW &= ~(1 << UCBRF_OFS);
+    EUSCI_A0->MCTLW |= (uint16_t)(((N/16) - (float)((uint16_t)(N/16)) )*16)  << EUSCI_A_MCTLW_BRF_OFS; //0b10 << EUSCI_A_MCTWL_BRF_OFS ;
     //// UCxBRS = 0
-    UCA0MCTLW &= ~1 << UCBRS_OFS;
+    ////Check out table 24-4 on page 915 of slau356i if you're not using 115200 or 9600
+    if (baud == 115200) EUSCI_A0->MCTLW |= (0x11 << EUSCI_A_MCTLW_BRS_OFS);
+    else EUSCI_A0->MCTLW &= ~(EUSCI_A_MCTLW_BRS_MASK << EUSCI_A_MCTLW_BRS_OFS); // defaults to 9600 setting.
+
     //// oversampling
-    UCA0MCTLW |= 1; // bit 1 set = oversampling enabled
+    EUSCI_A0->MCTLW |= EUSCI_A_MCTLW_OS16; // enable oversampling
 
-    //// No parity
-    UCA0CTLW0 &= ~(1 << UCPEN_OFS);
+
+    //// No parity (disabled)
+    EUSCI_A0->CTLW0 &= ~(1 << EUSCI_A_CTLW0_PEN_OFS);
     //// LSB first
-    UCA0CTLW0 &= ~(1 << UCPAR_OFS);
+    EUSCI_A0->CTLW0 &= ~(1 << EUSCI_A_CTLW0_MSB_OFS);
     //// one stop bit
-    UCA0CTLW0 &= ~(1 << UCSPB_OFS);
-
+    EUSCI_A0->CTLW0 &= ~(1 << EUSCI_A_CTLW0_SPB_OFS);
     //// uart mode
-    UCA0CTLW0 & = ~(1 << UCSYNC_OFS); // async mode
-    UCA0CTLW0 &= ~(0b11 << UCMODE_OFS); // UART mode, no auto baud rate
+    EUSCI_A0->CTLW0 &= ~(1 << EUSCI_A_CTLW0_SYNC_OFS); // async mode
+    EUSCI_A0->CTLW0 &= ~(0b11 << EUSCI_A_CTLW0_MODE_OFS); // UART mode, no auto baud rate
+
+
 
 }
 
 void enable_uart(){
     // clear UCSWRST
-    UCA0CTLW0 &= ~1;
+    EUSCI_A0->CTLW0 &= ~EUSCI_A_CTLW0_SWRST;
+    enable_interrupts();
 }
 
 void disable_uart(){
-    UCA0CTLW0 |= 1;
+    EUSCI_A0->CTLW0 |= EUSCI_A_CTLW0_SWRST;
     //this also will reset UCTXIE and UCRXIE - manually enable interrupts after use.
 }
 
 void enable_interrupts(){
-    // enable interrupts (optional) with UCRXIE or UCTXIE
-    UCA0IE |= 0b11; // enable both TXIE and RXIE
+    EUSCI_A0->IFG &= ~(BIT1 | BIT0); // reset TX and RX interrupt flags
+    // enable interrupts with UCRXIE or UCTXIE
+    EUSCI_A0->IE |= (BIT1 | BIT0);
     NVIC_EnableIRQ(EUSCIA0_IRQn); //Enables global interrupts
     __NVIC_SetPriority(EUSCIA0_IRQn, 2); //Sets the priority of interrupt 8 to 2
 
@@ -73,14 +84,19 @@ void readUART(){
 
 
 void EUSCIA0_IRQHandler(){
-    if(UCTXIFG){
+    if(EUSCI_A0->IFG & EUSCI_A_IFG_TXIFG){
         // if we have more to transmit
         // put next char in UCAxTXBUF
         // this is automatically reset once it's written
+        EUSCI_A0->TXBUF = 0;
     }
-    if(UCRXIFG){
+    if(EUSCI_A0->IFG & EUSCI_A_IFG_RXIFG){
+        P2OUT ^= 0x7; // toggle led when this happens.
         // set when character is received and loaded into UCAxRXBUF
         // Read character out of buffer
+        uint8_t data = EUSCI_A0->RXBUF;
+        // echo to tx
+        EUSCI_A0->TXBUF = data;
         // automatically reset when UCAxRXBUF is read
     }
 
