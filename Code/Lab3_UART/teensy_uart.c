@@ -7,17 +7,20 @@
 
 #include "msp.h"
 #include "teensy_uart.h"
-#include "buffer.h"
 
 #define fBRCLK 12000000 // Hz - input clock freq.
 
 //char []
 
-void init_teensy_buffer(){
+void init_teensy_vars(){
+    teensy_uart_state = 3;
+    teensy_ready = 0;
     teensy_buffer_size = 0;
-    int i;
+    int i; int j;
     for(i = 0;  i < TEENSY_BUFFER_MAX; i++){
-        teensy_buffer[i] = 0;
+        for(j = 0; j < 3; j++){
+            teensy_buffer[i][j] = 0;
+        }
     }
 }
 
@@ -84,9 +87,11 @@ void enable_teensy_interrupts(){
 
 }
 
-int write_teensy(uint8_t byte){
-    if((teensy_buffer_size) != BUFFER_MAX){ // if not full
-        teensy_buffer[buffer_size] = byte;
+int write_altitude(uint8_t byte0, uint8_t byte1, uint8_t byte2){
+    if((teensy_buffer_size) < TEENSY_BUFFER_MAX){ // if not full
+        teensy_buffer[teensy_buffer_size][0] = byte0;
+        teensy_buffer[teensy_buffer_size][1] = byte1;
+        teensy_buffer[teensy_buffer_size][2] = byte2;
         teensy_buffer_size++; // increment size.
         EUSCI_A3->IE |= EUSCI_A_IE_TXIE;
         //EUSCI_A3->IFG |= (BIT1); // set TX flag?
@@ -96,22 +101,31 @@ int write_teensy(uint8_t byte){
 }
 
 void EUSCIA3_IRQHandler(){
+
     if((EUSCI_A3->IFG & EUSCI_A_IFG_TXIFG)){
         if(teensy_buffer_size > 0){ // if we have more to transmit
             P2OUT ^= 0x2; // toggle GREEN led when this happens for debug
-            EUSCI_A3->TXBUF = teensy_buffer[teensy_buffer_size-1]; // put next char in UCAxTXBUF
-            // Manuel says that TXIFG is reset when you write to TXBUF, but tbh it doesn't happen???
-            teensy_buffer_size--;
+            teensy_uart_state = (teensy_uart_state+1) % 4;
+            if(teensy_uart_state != 3){
+                EUSCI_A3->TXBUF = teensy_buffer[teensy_buffer_size-1][teensy_uart_state]; // put next char in UCAxTXBUF
+            } else {
+                // Manuel says that TXIFG is reset when you write to TXBUF
+                teensy_buffer_size--;
+            }
         } else {
             EUSCI_A3->IE &=~EUSCI_A_IE_TXIE;
         }
 
     }
     if(EUSCI_A3->IFG & EUSCI_A_IFG_RXIFG){
-        //P2OUT ^= 0x1; // toggle led when this happens.
+        P2OUT ^= 0b1; // toggle RED led when this happens.
         // set when character is received and loaded into UCAxRXBUF
         // Read character out of buffer
         uint8_t data = EUSCI_A3->RXBUF;
+        if(data == 'r'){
+            P2OUT ^= 0b100; // toggle BLUE led when this happens.
+            teensy_ready = 1;
+        }
         // echo to tx
         //EUSCI_A3->TXBUF = data;
         // automatically reset when UCAxRXBUF is read

@@ -10,9 +10,12 @@
 
 #define TEENSY_BUFFER_MAX 10
 int teensy_buffer_size; //index of the last entry in the buffer + 1. 0 means it's empty.
-int teensy_buffer[TEENSY_BUFFER_MAX];
+uint8_t teensy_buffer[TEENSY_BUFFER_MAX][3];
+int teensy_ready;
 
-void init_teensy_buffer();
+uint8_t teensy_uart_state; // 0, 1, 2: transmit byte X. 3: idle.
+
+void init_teensy_vars();
 void config_teensy_uart(uint16_t baud);
 
 void enable_teensy_uart();

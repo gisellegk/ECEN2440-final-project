@@ -7,7 +7,6 @@
 
 #include "msp.h"
 #include "uart.h"
-#include "buffer.h"
 
 #define fBRCLK 12000000 // Hz - input clock freq.
 

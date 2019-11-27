@@ -13,8 +13,8 @@ void main(void)
 	//RGB LEDs for debug
 	P2DIR |= 0x7;     // Set as output
 	P2OUT &= ~0x7;     // Set to 0state
-	int i;
-    init_teensy_buffer();
+	int i; int delay_ctr;
+    init_teensy_vars();
 
 
 	// set DCO to 12 MHz
@@ -27,10 +27,20 @@ void main(void)
     config_teensy_uart(9600);
 	// Enable UART
     enable_teensy_uart(); // also enables interrupts
-
-    while(1){
-        write_teensy('a' + (uint8_t)rand()%26);  // add random number to next index of list.
-        for(i = 0; i < (100000); i++); // wait a bit.
-
+    uint8_t test_data[10][3] = {{0, 11, 22},
+                                {1, 22, 33},
+                                {2, 33, 44},
+                                {3, 44, 55},
+                                {4, 55, 66},
+                                {5, 66, 77},
+                                {6, 77, 88},
+                                {7, 88, 99},
+                                {8, 99, 00},
+                                {9, 00, 11}};
+    while(teensy_ready == 0){}
+    for(i = 0; i < 10; i = (i+1)%10){
+        write_altitude(test_data[i][0], test_data[i][1], test_data[i][2]);
+        for(delay_ctr = 0; delay_ctr < (100000); delay_ctr++); // wait a bit.
     }
+
 }
