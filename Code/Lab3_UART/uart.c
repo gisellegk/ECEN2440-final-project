@@ -13,6 +13,14 @@
 
 //char []
 
+void init_buffer(){
+    buffer_size = 0;
+    int i;
+    for(i = 0;  i < BUFFER_MAX; i++){
+        buffer[i] = 0;
+    }
+}
+
 void config_uart(uint16_t baud){
     //set p1.2 and p1.3 to UART mode
     // This is the primary function of these ports, so we want to write 01 in SEL1 and SEL0

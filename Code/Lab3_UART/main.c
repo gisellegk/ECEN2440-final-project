@@ -1,6 +1,5 @@
 #include "msp.h"
-#include "uart.h"
-#include "buffer.h"
+#include "teensy_uart.h"
 #include <stdlib.h>
 
 /**
@@ -14,28 +13,23 @@ void main(void)
 	//RGB LEDs for debug
 	P2DIR |= 0x7;     // Set as output
 	P2OUT &= ~0x7;     // Set to 0state
-    buffer_size = 0;
 	int i;
-	for(i = 0;	i < BUFFER_MAX; i++){
-	    buffer[i] = 0;
-	}
+    init_teensy_buffer();
 
 
 	// set DCO to 12 MHz
     // in register CSCTL0:
     // DCORSEL - resistor select(?) write 011b nominal freq = 12MH
-	 CS->KEY  = 0x695A;
+	 CS->KEY  = 0x695A; //unlock clock
 	 CS->CTL0|= CS_CTL0_DCORSEL_3;
-	 CS->KEY  = 0;
+	 CS->KEY  = 0; //lock clock
 	// Configure UART
-    config_uart(9600);
+    config_teensy_uart(9600);
 	// Enable UART
-    enable_uart(); // also enables interrupts
-	// enable interrupts
-    //enable_interrupts();
-	// what else?
+    enable_teensy_uart(); // also enables interrupts
+
     while(1){
-        write_uart('a' + (uint8_t)rand()%26);  // add random number to next index of list.
+        write_teensy('a' + (uint8_t)rand()%26);  // add random number to next index of list.
         for(i = 0; i < (100000); i++); // wait a bit.
 
     }
