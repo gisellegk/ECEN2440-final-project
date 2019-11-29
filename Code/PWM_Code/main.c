@@ -2,20 +2,20 @@
 /**
  * main.c
  */
-void set_duty_cycle(float value[167]){
+void set_duty_cycle(float value[]){
    int i;
     for(i = 0; i = 167; i++){
     TIMER_A0->CCR[0] |= (value[i]);
             i = i % 167;
     }
 }
-void TA0_0_IRQHandler(float value[167]){
+void TA0_0_IRQHandler(float value[]){
 if(TIMER_A0 ->CCTL[0] & TIMER_A_CCTLN_CCIFG){  // checks if the interrupt flag is up
     set_duty_cycle(value);
 TIMER_A0 ->CCTL[0] &= ~TIMER_A_CCTLN_CCIFG; //Resets the interupppt flag
 }
 }
-void pwm(float value[167]){
+void pwm(float value[]){
 P2 -> DIR |= BIT4; // intialize p2.4 as timerA0 output
 P2 -> OUT |= BIT4;
 //P2 -> SEL0 |= BIT4; NOT SURE IF WE NEED THESE.....
@@ -68,7 +68,7 @@ void main(void)
 	                         14.143 15.496 16.899 18.349 19.846 21.386
 	                         22.968 24.589 26.247 27.939 29.663 31.417
  	                         33.198 35.003 36.829 38.675 40.537 42.413
-	                         44.3 46.196 48.096 50] ;
+	                         44.3 46.196 48.096 50]  ;
 
 set_duty_cycle(sin_values);
 TA0_0_IRQHandler(sin_values);
