@@ -8,42 +8,39 @@
 #define PRESSURE_MEASUREMENT_MSB 0x48
 #define PRESSURE_MEASUREMENT_LSB 0xA3
 #define READ_HEADER 0xC7
+#define ID_MSB 0xEF
+#define ID_LSB 0xC8
 
 int main(void)
 {
     WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;     // stop watchdog timer
 
     config_i2c();
-    send_start();
 
-    send_data(ICP10111, WRITE_HEADER);
+    measurement_sequence(ICP10111, WRITE_HEADER, ID_MSB, ID_LSB);
 
-    send_data(ICP10111, PRESSURE_MEASUREMENT_MSB);
+    read_probing(ICP10111, READ_HEADER);
 
-    send_data(ICP10111, PRESSURE_MEASUREMENT_LSB);
-
-    send_data(ICP10111, READ_HEADER);
-
-    while((EUSCI_B0->IFG & EUSCI_B_IFG_NACKIFG) == EUSCI_B_IFG_NACKIFG) {
-        EUSCI_B0->IFG &= ~EUSCI_B_IFG_NACKIFG;
-        send_data(ICP10111, READ_HEADER);
+    uint8_t i = 0;
+    for (i; i < 2; i++) {
+        uint8_t id = read_data(ICP10111);
     }
 
-    uint8_t pressure_mmsb = read_data(ICP10111);
-    uint8_t pressure_mlsb = read_data(ICP10111);
-    uint8_t pressure_crc = read_data(ICP10111);
+    send_stop();
 
-    uint8_t pressure_lmsb = read_data(ICP10111);
-    uint8_t pressure_llsb = read_data(ICP10111);
-    pressure_crc = read_data(ICP10111); // Disregard llsb
+    measurement_sequence(ICP10111, WRITE_HEADER, PRESSURE_MEASUREMENT_MSB, PRESSURE_MEASUREMENT_LSB);
 
-    if (pressure_mmsb != 0xFF &&
-        pressure_mlsb != 0xFF &&
-        pressure_lmsb != 0xFF) {
-        P2->OUT = BIT4;
+    read_probing(ICP10111, READ_HEADER);
+
+    uint8_t pressure [6];
+
+    i = 0;
+
+    for(i = 0; i < 6; i++) {
+        pressure[i] = read_data(ICP10111);
     }
 
-    P2->OUT |= BIT4;
+    send_stop();
 
     return 0;
 }

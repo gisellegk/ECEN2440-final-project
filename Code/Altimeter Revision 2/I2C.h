@@ -10,6 +10,12 @@
 
 #include <stdint.h>
 
+void measurement_sequence(uint8_t address, uint8_t reg, uint8_t msb, uint8_t lsb);
+
+void get_id( uint8_t address, uint8_t msb, uint8_t lsb);
+
+void read_probing(uint8_t address, uint8_t reg);
+
 void config_i2c(void); // configures to MSP432 to act in master mode
 
 void write_register(uint8_t address, uint8_t reg, uint8_t value);
