@@ -3,12 +3,12 @@
 /**
  * main.c
  */
+
+int sin_select = 0;
+
 void set_duty_cycle(float value[]){
-   int i;
-    for(i = 0; i != 167; i++){
-    TIMER_A0->CCR[0] |= (int) roundf(value[i]);
-            i = i % 167;
-    }
+    TIMER_A0->CCR[0] |= (int) roundf(value[sin_select]);
+    sin_select++;
 }
 
 void TA0_0_IRQHandler(float value[]){
