@@ -21901,8 +21901,8 @@ Source: www.bourns.com .. 6000_series.pdf</description>
 <part name="4VPWR" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X2" device="" package3d_urn="urn:adsk.eagle:package:22435/2"/>
 <part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="AC_COUPLE" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="1u"/>
-<part name="CIN" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="A" package3d_urn="urn:adsk.eagle:package:23418/2" value="100nF"/>
-<part name="COUT" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="A" package3d_urn="urn:adsk.eagle:package:23418/2" value="1uF"/>
+<part name="CIN" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="A" package3d_urn="urn:adsk.eagle:package:23418/2" value="10u"/>
+<part name="COUT" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="A" package3d_urn="urn:adsk.eagle:package:23418/2" value="10u"/>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GNDA" device=""/>
 <part name="GND10" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GNDA" device=""/>
 <part name="GND11" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GNDA" device=""/>
@@ -21916,12 +21916,12 @@ Source: www.bourns.com .. 6000_series.pdf</description>
 <part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V+" device=""/>
 <part name="U$1" library="Custom Library" deviceset="BDXXC0A-C" device="BD00C0AWHFP-CTR"/>
 <part name="L1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="L-US" device="L3225M" package3d_urn="urn:adsk.eagle:package:23477/2"/>
-<part name="R8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2"/>
-<part name="R9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2"/>
+<part name="R8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="2R"/>
+<part name="R9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="2R"/>
 <part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="A" package3d_urn="urn:adsk.eagle:package:23418/2"/>
-<part name="C6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="A" package3d_urn="urn:adsk.eagle:package:23418/2"/>
-<part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="500n"/>
+<part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="A" package3d_urn="urn:adsk.eagle:package:23418/2" value="2.2u"/>
+<part name="C6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="A" package3d_urn="urn:adsk.eagle:package:23418/2" value="2.2u"/>
+<part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n"/>
 <part name="U$2" library="Custom Library" deviceset="WOBBUFFET" device=""/>
 </parts>
 <sheets>
