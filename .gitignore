@@ -10,6 +10,7 @@ Code/RemoteSystemsTempFiles/*
 Code/*/.gitignore
 Code/*/.settings/*
 Code/*/.launches/*
+Code/*/Debug/*
 
 # eagle files
 *.s#*
@@ -23,3 +24,6 @@ Code/*/.launches/*
 *.log
 *.op.raw
 *.raw
+
+# pspice
+*.out
