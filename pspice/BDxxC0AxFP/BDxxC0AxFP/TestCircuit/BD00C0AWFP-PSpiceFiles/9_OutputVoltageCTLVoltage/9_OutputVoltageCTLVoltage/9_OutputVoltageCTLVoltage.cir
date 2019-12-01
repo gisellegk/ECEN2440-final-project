@@ -1,0 +1,20 @@
+** Profile: "9_OutputVoltageCTLVoltage-9_OutputVoltageCTLVoltage"  [ D:\Users\erics\Downloads\BDxxC0AxFP\TestCircuit\bd00c0awfp-pspicefiles\9_outputvoltagectlvoltage\9_outputvoltagectlvoltage.sim ] 
+
+** Creating circuit file "9_OutputVoltageCTLVoltage.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../bdxxc0axfp.lib" 
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.DC LIN V_VCTL 0 26.5 0.01 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\9_OutputVoltageCTLVoltage.net" 
+
+
+.END

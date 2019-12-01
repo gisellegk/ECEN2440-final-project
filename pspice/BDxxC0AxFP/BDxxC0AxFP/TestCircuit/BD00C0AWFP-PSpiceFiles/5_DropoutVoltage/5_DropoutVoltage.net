@@ -1,0 +1,38 @@
+* source BD00C0AWFP
+V_VCC         N172760 0 DC 4.2 AC 0 
+X_U1         CTL CTL 0 VOUT ADJ 0 BD00C0AWFP
+C_CIN         0 N17350  10u  TC=0,0 
+R_R1         ADJ 0 R_R1 10k TC=0,0 
+.model        R_R1 RES R=1 DEV=10% TC1=0 TC2=0
+R_R2         VOUT ADJ R_R2 43k TC=0,0 
+.model        R_R2 RES R=1 DEV=10% TC1=0 TC2=0
+R_RESR1         CTL N17350  21 TC=0,0 
+R_R4         N27193 0  {load} TC=0,0 
+R_R5         N172760 CTL  240m TC=0,0 
+C_COUT         0 N25434 C_COUT 10u  TC=0,0 
+.model        C_COUT CAP C=1 DEV=20% TC1=0 TC2=0 VC1=0 VC2=0
+R_R_COUT         VOUT N25434 R_R_COUT 21 TC=0,0 
+.model        R_R_COUT RES R=1 DEV=50% TC1=0 TC2=0
+R_R8         N26044 V_FILTERED R_R8 2 TC=0,0 
+.model        R_R8 RES R=1 DEV=10% TC1=0 TC2=0
+L_L1         VOUT N27085 L_L1 1.56uH  
+.model        l_L1 IND L=1 DEV=30% TC1=0 TC2=0 IL1=0 IL2=0
+C_C5         N259730 N26044 C_C5 2.2u  TC=0,0 
+.model        C_C5 CAP C=1 DEV=20% TC1=0 TC2=0 VC1=0 VC2=0
+C_C4         0 N26757 C_C4 15m  TC=0,0 
+.model        C_C4 CAP C=1 DEV=20% TC1=0 TC2=0 VC1=0 VC2=0
+R_R_C4         N26757 V_FILTERED R_R_C4 100m TC=0,0 
+.model        R_R_C4 RES R=1 DEV=100% TC1=0 TC2=0
+R_R_C5         0 N259730 R_R_C5 15m TC=0,0 
+.model        R_R_C5 RES R=1 DEV=100% TC1=0 TC2=0
+R_R_L1         N27085 V_FILTERED R_R_L1 100m TC=0,0 
+.model        R_R_L1 RES R=1 DEV=50% TC1=0 TC2=0
+X_U2         V_FILTERED N27193 Sw_tClose PARAMS: tClose=1m ttran=1u
++  Rclosed=0.01 Ropen=1Meg
+C_C6         N274560 N27444 C_C6 2.2u  TC=0,0 
+.model        C_C6 CAP C=1 DEV=20% TC1=0 TC2=0 VC1=0 VC2=0
+R_R_C6         0 N274560 R_R_C6 15m TC=0,0 
+.model        R_R_C6 RES R=1 DEV=100% TC1=0 TC2=0
+R_R9         N27444 V_FILTERED R_R9 2 TC=0,0 
+.model        R_R9 RES R=1 DEV=10% TC1=0 TC2=0
+.PARAM  load=5

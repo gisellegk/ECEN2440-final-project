@@ -2,18 +2,24 @@
   (ProjectType "PCB")
   (Folder "Design Resources"
     (Folder "Library")
-    (File ".\NCP1117 MODEL LIBRARY.OLB"
+    (File ".\ncp1117 model library.olb"
       (Type "Schematic Design"))
     (BuildFileAddedOrDeleted "x")
     (CompileFileAddedOrDeleted "x")
     (NoModify))
   (Folder "Outputs")
   (Folder "Translator"
-    (File ".\NCP1117 MODEL LIBRARY.ERR"
+    (File ".\ncp1117 model library.err"
       (Type "Report")))
   (GlobalState
     (FileView
       (Path "Design Resources")
-      (Path "Design Resources" ".\NCP1117 MODEL LIBRARY.OLB")
       (Path "Translator")
-      (Select "Design Resources" ".\NCP1117 MODEL LIBRARY.OLB")))))
+      (Select "Design Resources"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 0 200 0 420"))
+      (Tab 0)))
+  (MPSSessionName "Giselle"))

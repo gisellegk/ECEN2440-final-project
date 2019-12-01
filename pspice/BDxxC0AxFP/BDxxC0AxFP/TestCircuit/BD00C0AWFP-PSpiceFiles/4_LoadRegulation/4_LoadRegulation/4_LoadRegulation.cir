@@ -1,0 +1,19 @@
+** Profile: "4_LoadRegulation-4_LoadRegulation"  [ D:\1_WebUp\kakuninn\BD00C0A\TestCircuit\bd00c0awfp-pspicefiles\4_loadregulation\4_loadregulation.sim ] 
+
+** Creating circuit file "4_LoadRegulation.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../bdxxc0axfp.lib" 
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+
+*Analysis directives: 
+.DC LIN V_VOUT 0 5.1 0.01 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\4_LoadRegulation.net" 
+
+
+.END

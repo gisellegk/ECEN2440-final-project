@@ -1,0 +1,60 @@
+
+**** 11/27/19 21:58:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "5_DropoutVoltage-sweep"  [ C:\Users\Giselle\Desktop\classes\ecen 2440\ECEN2440-final-project\pspice\BDxxC0AxFP\BDxxC0Ax
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "sweep.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../bdxxc0axfp.lib" 
+* From [PSPICE NETLIST] section of C:\Users\Giselle\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.DC LIN V_VCC 4.2 5.4 .1 
++ LIN PARAM load 5 70 10 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\5_DropoutVoltage.net" 
+
+
+
+**** INCLUDING 5_DropoutVoltage.net ****
+* source BD00C0AWFP
+V_VCC         N172760 0 DC 4.2 AC 0 
+X_U1         CTL CTL 0 VOUT ADJ 0 BD00C0AWFP
+C_CIN         0 N17350  10u  TC=0,0 
+R_R1         ADJ 0  10k TC=0,0 
+R_R2         VOUT ADJ  43k TC=0,0 
+R_RESR1         CTL N17350  10m TC=0,0 
+C_CIN1         0 N22980  100n  TC=0,0 
+R_RESR2         N23798 N22980  10m TC=0,0 
+R_R4         VOUT 0  {load} TC=0,0 
+C_CIN2         0 N23824  10u  TC=0,0 
+R_RESR3         N23798 N23824  .5 TC=0,0 
+R_R5         N172760 CTL  240m TC=0,0 
+C_COUT         0 N25434  10u  TC=0,0 
+R_RESR4         VOUT N25434  10m TC=0,0 
+.PARAM  load=5
+
+**** RESUMING sweep.cir ****
+.END
+
+ERROR(ORPSIM-15142): Node N22980 is floating
+
+ERROR(ORPSIM-15142): Node N23798 is floating
+
+ERROR(ORPSIM-15142): Node N23824 is floating
+

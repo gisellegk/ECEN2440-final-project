@@ -1,0 +1,57 @@
+
+**** 02/26/19 13:14:43 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "7_CircuitCurrntByLoad-7_CircuitCurrentByLoad"  [ D:\1_WebUp\LDO\009_BD357x\20190226\TestCircuit\bd00c0awfp-pspicefiles\
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "7_CircuitCurrentByLoad.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../bdxxc0axfp.lib" 
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+
+*Analysis directives: 
+.DC LIN I_IOUT 0 1000m 1m 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\7_CircuitCurrntByLoad.net" 
+
+
+
+**** INCLUDING 7_CircuitCurrntByLoad.net ****
+* source BD00C0AWFP
+C_CIN         0 N18802  1u  TC=0,0 
+R_RESR2         VOUT N18808  10m TC=0,0 
+R_R2         VOUT ADJ  56.7k TC=0,0 
+V_VCC         VCC 0 DC 13.5 AC 0 
+V_VCTL         CTL 0 DC 5  
+R_R1         ADJ 0  10k TC=0,0 
+R_RESR1         VCC N18802  10m TC=0,0 
+C_COUT         0 N18808  2.2u  TC=0,0 
+X_U1         CTL VCC 0 VOUT ADJ 0 BD00C0AWFP
+I_IOUT         VOUT 0 DC 0Adc  
+
+**** RESUMING 7_CircuitCurrentByLoad.cir ****
+.END
+
+WARNING(ORPSIM-15223): ライブラリファイル D:\1_WebUp\LDO\009_BD357x\20190226\TestCircuit\bdxxc0axfp.lib がインデックスファイル bdxxc0axfp.ind の作成後に変更されています。
+
+WARNING(ORPSIM-15227): タイムスタンプが Tue Feb 26 12:17:58 2019 から Tue Feb 26 13:14:41 2019 に変更されました。
+
+INFO(ORPSIM-15422): 新しいインデックスファイル bdxxc0axfp.ind を作成しています。（対象ライブラリファイル： bdxxc0axfp.lib ）
+
+Index has 9 entries from 1 file(s).
+
+ERROR(ORPSIM-15090): G DEVICE デバイス X_U1.VIO は定義されていません。
+

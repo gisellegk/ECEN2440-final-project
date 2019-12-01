@@ -1,0 +1,18 @@
+** Profile: "0_OP-0_OP"  [ \\RLWINDT489\AEA-data\22_SpiceModel\04.WebUp\61Šú\AEM61-D1-0001(BD00C0AWFP)\WebUpPrepare\TestCircuit\bd00c0awfp-pspicefiles\0_op\0_op.sim ] 
+
+** Creating circuit file "0_OP.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../bdxxc0axfp.lib" 
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+
+*Analysis directives: 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\0_OP.net" 
+
+
+.END

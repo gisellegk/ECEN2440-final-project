@@ -1,0 +1,19 @@
+** Profile: "11_LineResponse-11_LineResponse"  [ D:\1_WebUp\kakuninn\BD00C0A\TestCircuit\bd00c0awfp-pspicefiles\11_lineresponse\11_lineresponse.sim ] 
+
+** Creating circuit file "11_LineResponse.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../bdxxc0axfp.lib" 
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+
+*Analysis directives: 
+.TRAN  0 1m 0 1u 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\11_LineResponse.net" 
+
+
+.END

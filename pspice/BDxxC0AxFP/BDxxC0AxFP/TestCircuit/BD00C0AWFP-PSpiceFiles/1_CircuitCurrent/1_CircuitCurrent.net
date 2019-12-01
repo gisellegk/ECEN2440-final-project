@@ -1,0 +1,10 @@
+* source BD00C0AWFP
+R_RESR1         VCC N11465  10m TC=0,0 
+R_RESR2         VOUT N11471  10m TC=0,0 
+V_VCTL         CTL 0 DC 5  
+C_CIN         0 N11465  1u  TC=0,0 
+V_VCC         VCC 0 DC 13.5  
+C_COUT         0 N11471  2.2u  TC=0,0 
+R_R1         ADJ 0  10k TC=0,0 
+R_R2         VOUT ADJ  56.7k TC=0,0 
+X_U1         CTL VCC 0 VOUT ADJ 0 BD00C0AWFP

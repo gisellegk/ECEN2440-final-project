@@ -1,0 +1,20 @@
+** Profile: "5_DropoutVoltage-5_DropoutVoltage"  [ D:\Users\erics\Downloads\BDxxC0AxFP\TestCircuit\bd00c0awfp-pspicefiles\5_dropoutvoltage\5_dropoutvoltage.sim ] 
+
+** Creating circuit file "5_DropoutVoltage.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../bdxxc0axfp.lib" 
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.TRAN  0 4m 0 10u 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\5_DropoutVoltage.net" 
+
+
+.END

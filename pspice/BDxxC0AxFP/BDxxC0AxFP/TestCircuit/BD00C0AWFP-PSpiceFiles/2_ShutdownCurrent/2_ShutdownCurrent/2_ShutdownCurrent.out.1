@@ -1,0 +1,48 @@
+
+**** 04/20/18 11:41:14 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "2_ShutdownCurrent-2_ShutdownCurrent"  [ D:\1_WebUp\LDO\BDxxC0A\TestCircuit2\BD00C0AWFP-PSpiceFiles\2_ShutdownCurrent\2_
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "2_ShutdownCurrent.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../bdxxc0axfp.lib" 
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+
+*Analysis directives: 
+.DC LIN V_VCC 0 26.5 0 
+---------------------$
+ERROR(ORPSIM-16069): ñ≥å¯Ç»ëùï™Ç≈Ç∑ÅB
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\2_ShutdownCurrent.net" 
+
+
+
+**** INCLUDING 2_ShutdownCurrent.net ****
+* source BD00C0AWFP
+C_COUT         0 N12366  2.2u  TC=0,0 
+X_U1         N12126 VCC 0 VOUT N12138 0 BD00C0AWFP
+R_R1         N12138 0  10k TC=0,0 
+C_CIN         0 N12360  1u  TC=0,0 
+R_R2         N12138 VOUT  56.7k TC=0,0 
+R_ESR1         VCC N12360  10m TC=0,0 
+V_CTL         N12126 0 DC 0  
+V_VCC         VCC 0 DC 13.5  
+R_ESR2         VOUT N12366  10m TC=0,0 
+
+**** RESUMING 2_ShutdownCurrent.cir ****
+.END
+

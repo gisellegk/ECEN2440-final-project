@@ -1,0 +1,30 @@
+(ExpressProject ""
+  (ProjectVersion "19981106")
+  (Folder "Design Resources"
+    (Folder "Library")
+    (File ".\bdxxc0axfp.olb"
+      (Type "Schematic Library"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (NoModify))
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" ".\bdxxc0axfp.olb")
+      (Select "Design Resources" ".\bdxxc0axfp.olb" "BD00C0AWFP"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 0 200 0 420"))
+      (Tab 0))
+    (Doc
+      (Type "COrPrmBrowserDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 156 1535 156 615"))
+      (Path
+         "C:\USERS\GISELLE\DESKTOP\CLASSES\ECEN 2440\ECEN2440-FINAL-PROJECT\PSPICE\BDXXC0AXFP\BDXXC0AXFP\BDXXC0AXFP.OLB")
+      (Package "BD00C0AWFP")
+      (PartType "1"))))

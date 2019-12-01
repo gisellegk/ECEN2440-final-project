@@ -1,0 +1,19 @@
+** Profile: "7_CircuitCurrntByLoad-7_CircuitCurrentByLoad"  [ D:\1_WebUp\kakuninn\BD00C0A\TestCircuit\bd00c0awfp-pspicefiles\7_circuitcurrntbyload\7_circuitcurrentbyload.sim ] 
+
+** Creating circuit file "7_CircuitCurrentByLoad.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../bdxxc0axfp.lib" 
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+
+*Analysis directives: 
+.DC LIN I_IOUT 0 1000m 1m 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\7_CircuitCurrntByLoad.net" 
+
+
+.END

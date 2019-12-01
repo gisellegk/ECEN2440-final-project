@@ -1,0 +1,22 @@
+** Profile: "5_DropoutVoltage-sweep"  [ C:\Users\Giselle\Desktop\classes\ecen 2440\ECEN2440-final-project\pspice\BDxxC0AxFP\BDxxC0AxFP\TestCircuit\bd00c0awfp-pspicefiles\5_dropoutvoltage\sweep.sim ] 
+
+** Creating circuit file "sweep.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../bdxxc0axfp.lib" 
+* From [PSPICE NETLIST] section of C:\Users\Giselle\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.DC LIN V_VCC 4.2 5.4 .1 
++ LIN PARAM load 5 70 10 
+.MC 100 DC V([VOUT]) YMAX OUTPUT ALL SEED=847 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\5_DropoutVoltage.net" 
+
+
+.END

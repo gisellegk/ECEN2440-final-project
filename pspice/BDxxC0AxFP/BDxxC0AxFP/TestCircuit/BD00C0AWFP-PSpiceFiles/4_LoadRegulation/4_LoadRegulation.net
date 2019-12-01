@@ -1,0 +1,11 @@
+* source BD00C0AWFP
+C_COUT         0 N18397  2.2u  TC=0,0 
+V_VCTL         CTL 0 DC 5  
+R_R1         ADJ 0  10k TC=0,0 
+R_RESR1         VCC N18391  10m TC=0,0 
+R_R2         VOUT ADJ  56.7k TC=0,0 
+V_VCC         VCC 0 DC 13.5  
+C_CIN         0 N18391  1u  TC=0,0 
+X_U1         CTL VCC 0 VOUT ADJ 0 BD00C0AWFP
+R_RESR2         VOUT N18397  10m TC=0,0 
+V_VOUT         VOUT 0 DC 5  

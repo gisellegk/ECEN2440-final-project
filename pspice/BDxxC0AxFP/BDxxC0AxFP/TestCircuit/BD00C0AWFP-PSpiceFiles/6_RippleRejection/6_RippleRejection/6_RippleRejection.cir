@@ -1,0 +1,19 @@
+** Profile: "6_RippleRejection-6_RippleRejection"  [ D:\1_WebUp\kakuninn\BD00C0A\TestCircuit\bd00c0awfp-pspicefiles\6_ripplerejection\6_ripplerejection.sim ] 
+
+** Creating circuit file "6_RippleRejection.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../bdxxc0axfp.lib" 
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+
+*Analysis directives: 
+.AC DEC 20 10 1meg
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\6_RippleRejection.net" 
+
+
+.END

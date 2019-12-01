@@ -1,0 +1,19 @@
+** Profile: "10_LoadResponse-10_LoadResponse"  [ \\RLWINDT489\AEA-data\22_SpiceModel\04.WebUp\61Šú\AEM61-D1-0001(BD00C0AWFP)\WebUpPrepare\TestCircuit\bd00c0awfp-pspicefiles\10_loadresponse\10_loadresponse.sim ] 
+
+** Creating circuit file "10_LoadResponse.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../bdxxc0axfp.lib" 
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+
+*Analysis directives: 
+.TRAN  0 1m 0 1u 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\10_LoadResponse.net" 
+
+
+.END

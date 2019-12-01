@@ -1,0 +1,12 @@
+* source BD00C0AWFP
+R_RESR1         VCC N17960  10m TC=0,0 
+V_VCTL         CTL 0 DC 5  
+X_U1         CTL VCC 0 VOUT ADJ 0 BD00C0AWFP
+C_CIN         0 N17960  1u  TC=0,0 
+R_RESR2         VOUT N17966  10m TC=0,0 
+C_COUT         0 N17966  2.2u  TC=0,0 
+R_R1         ADJ 0  10k TC=0,0 
+R_R2         VOUT ADJ  56.7k TC=0,0 
+R_RL         VOUT 0  {5/100m} TC=0,0 
+V_VCC         VCC 0  
++PULSE 12 24 300u {30u/0.8} {30u/0.8} 400u 

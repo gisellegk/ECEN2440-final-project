@@ -1,0 +1,19 @@
+** Profile: "3_LineRegulation-3_LineRegulation"  [ D:\1_WebUp\kakuninn\BD00C0A\TestCircuit\bd00c0awfp-pspicefiles\3_lineregulation\3_lineregulation.sim ] 
+
+** Creating circuit file "3_LineRegulation.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../bdxxc0axfp.lib" 
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+
+*Analysis directives: 
+.DC LIN V_VCC 0 26.5 0.01 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\3_LineRegulation.net" 
+
+
+.END

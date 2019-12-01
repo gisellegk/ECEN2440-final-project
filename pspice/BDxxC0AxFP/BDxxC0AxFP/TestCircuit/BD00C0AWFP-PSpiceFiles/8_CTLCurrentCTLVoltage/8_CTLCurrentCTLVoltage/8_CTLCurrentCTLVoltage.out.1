@@ -1,0 +1,48 @@
+
+**** 04/26/18 13:38:04 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "8_CTLCurrentCTLVoltage-8_CTLCurrentCTLVoltage"  [ D:\1_WebUp\LDO\004_BDxxC0A\TestCircuit2\bd00c0awfp-pspicefiles\8_ctlc
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "8_CTLCurrentCTLVoltage.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../bdxxc0axfp.lib" 
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+
+*Analysis directives: 
+.DC LIN CTL 0 5 0.01 
+--------$
+ERROR(ORPSIM-16063): 'I'Ç‹ÇΩÇÕ'V'Ç≈Ç»ÇØÇÍÇŒÇ»ÇËÇ‹ÇπÇÒÅB
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\8_CTLCurrentCTLVoltage.net" 
+
+
+
+**** INCLUDING 8_CTLCurrentCTLVoltage.net ****
+* source BD00C0AWFP
+R_RESR2         VOUT N17717  10m TC=0,0 
+C_CIN         0 N17711  1u  TC=0,0 
+R_R2         VOUT ADJ  56.7k TC=0,0 
+X_U1         N17489 VCC 0 VOUT ADJ 0 BD00C0AWFP
+R_RESR1         VCC N17711  10m TC=0,0 
+R_R1         ADJ 0  10k TC=0,0 
+C_COUT         0 N17717  2.2u  TC=0,0 
+V_VCC         VCC 0 DC 13.5  
+V_VCTL         N17489 0 DC 5  
+
+**** RESUMING 8_CTLCurrentCTLVoltage.cir ****
+.END
+

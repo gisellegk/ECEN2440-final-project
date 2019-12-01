@@ -1,0 +1,21 @@
+** Profile: "5_DropoutVoltage-step_load"  [ C:\Users\Giselle\Desktop\classes\ecen 2440\ECEN2440-final-project\pspice\BDxxC0AxFP\BDxxC0AxFP\TestCircuit\BD00C0AWFP-PSpiceFiles\5_DropoutVoltage\step_load.sim ] 
+
+** Creating circuit file "step_load.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../bdxxc0axfp.lib" 
+* From [PSPICE NETLIST] section of C:\Users\Giselle\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.TRAN  0 2m 0 100n 
+.MC 1024 TRAN V([V_FILTERED]) YMAX OUTPUT ALL SEED=449 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\5_DropoutVoltage.net" 
+
+
+.END

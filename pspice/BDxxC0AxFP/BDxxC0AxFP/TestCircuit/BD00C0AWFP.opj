@@ -1,0 +1,195 @@
+(ExpressProject "BD00C0AWFP"
+  (ProjectVersion "19981106")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library")
+    (NoModify)
+    (File ".\bd00c0awfp.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (PSPICE_Regenerate_Netlist_Flag "FALSE")
+    (RootChangedForceReNetlist "x"))
+  (Folder "Outputs"
+    (File ".\bd00c0awfp-pspicefiles\1_circuitcurrent\1_circuitcurrent.net"
+      (Type "Report"))
+    (File ".\bd00c0awfp-pspicefiles\2_shutdowncurrent\2_shutdowncurrent.net"
+      (Type "Report"))
+    (File ".\bd00c0awfp-pspicefiles\3_lineregulation\3_lineregulation.net"
+      (Type "Report"))
+    (File ".\bd00c0awfp-pspicefiles\4_loadregulation\4_loadregulation.net"
+      (Type "Report"))
+    (File ".\bd00c0awfp-pspicefiles\5_dropoutvoltage\5_dropoutvoltage.net"
+      (Type "Report"))
+    (File ".\bd00c0awfp-pspicefiles\6_ripplerejection\6_ripplerejection.net"
+      (Type "Report"))
+    (File
+       ".\bd00c0awfp-pspicefiles\7_circuitcurrntbyload\7_circuitcurrntbyload.net"
+      (Type "Report"))
+    (File
+       ".\bd00c0awfp-pspicefiles\8_ctlcurrentctlvoltage\8_ctlcurrentctlvoltage.net"
+      (Type "Report"))
+    (File
+       ".\bd00c0awfp-pspicefiles\9_outputvoltagectlvoltage\9_outputvoltagectlvoltage.net"
+      (Type "Report"))
+    (File ".\bd00c0awfp-pspicefiles\10_loadresponse\10_loadresponse.net"
+      (Type "Report"))
+    (File ".\bd00c0awfp-pspicefiles\11_lineresponse\11_lineresponse.net"
+      (Type "Report"))
+    (File ".\bd00c0awfp-pspicefiles\0_op\0_op.net"
+      (Type "Report")))
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles"
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\bd00c0awfp-pspicefiles\1_circuitcurrent\1_circuitcurrent.sim"
+        (DisplayName "1_CircuitCurrent-1_CircuitCurrent")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\bd00c0awfp-pspicefiles\2_shutdowncurrent\2_shutdowncurrent.sim"
+        (DisplayName "2_ShutdownCurrent-2_ShutdownCurrent")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\bd00c0awfp-pspicefiles\3_lineregulation\3_lineregulation.sim"
+        (DisplayName "3_LineRegulation-3_LineRegulation")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\bd00c0awfp-pspicefiles\4_loadregulation\4_loadregulation.sim"
+        (DisplayName "4_LoadRegulation-4_LoadRegulation")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\bd00c0awfp-pspicefiles\5_dropoutvoltage\5_dropoutvoltage.sim"
+        (DisplayName "5_DropoutVoltage-5_DropoutVoltage")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\bd00c0awfp-pspicefiles\6_ripplerejection\6_ripplerejection.sim"
+        (DisplayName "6_RippleRejection-6_RippleRejection")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\bd00c0awfp-pspicefiles\7_circuitcurrntbyload\7_circuitcurrentbyload.sim"
+        (DisplayName "7_CircuitCurrntByLoad-7_CircuitCurrentByLoad")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\bd00c0awfp-pspicefiles\9_outputvoltagectlvoltage\9_outputvoltagectlvoltage.sim"
+        (DisplayName "9_OutputVoltageCTLVoltage-9_OutputVoltageCTLVoltage")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\bd00c0awfp-pspicefiles\0_op\0_op.sim"
+        (DisplayName "0_OP-0_OP")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\bd00c0awfp-pspicefiles\8_ctlcurrentctlvoltage\8_ctlcurrentctlvoltage.sim"
+        (DisplayName "8_CTLCurrentCTLVoltage-8_CTLCurrentCTLVoltage")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\bd00c0awfp-pspicefiles\5_dropoutvoltage\sweep.sim"
+        (DisplayName "5_DropoutVoltage-sweep")
+        (Type "PSpice Profile"))
+      (ActiveProfile ".\bd00c0awfp-pspicefiles\5_dropoutvoltage\step_load.sim")
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\bd00c0awfp-pspicefiles\5_dropoutvoltage\step_load.sim"
+        (DisplayName "5_DropoutVoltage-step_load")
+        (Type "PSpice Profile")))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User))
+    (Folder "Model Libraries"
+      (Sort User)
+      (File ".\bdxxc0axfp.lib"
+        (Type "PSpiceLibrary")
+        (DisplayName ".\bdxxc0axfp.lib"))))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources"
+         "C:\Users\Giselle\Desktop\classes\ecen 2440\ECEN2440-final-project\pspice\BDxxC0AxFP\BDxxC0AxFP\TestCircuit\bd00c0awfp.dsn")
+      (Path "Design Resources"
+         "C:\Users\Giselle\Desktop\classes\ecen 2440\ECEN2440-final-project\pspice\BDxxC0AxFP\BDxxC0AxFP\TestCircuit\bd00c0awfp.dsn"
+         "5_DropoutVoltage")
+      (Path "Outputs")
+      (Path "PSpice Resources")
+      (Path "PSpice Resources" "Model Libraries")
+      (Path "PSpice Resources" "Simulation Profiles")
+      (Select "Design Resources"
+         "C:\Users\Giselle\Desktop\classes\ecen 2440\ECEN2440-final-project\pspice\BDxxC0AxFP\BDxxC0AxFP\TestCircuit\bd00c0awfp.dsn"
+         "5_DropoutVoltage" "PAGE1"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -27 0 200 0 522"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 208 1587 208 667")
+        (Scroll "0 39")
+        (Zoom "133")
+        (Occurrence "/"))
+      (Path
+         "C:\USERS\GISELLE\DESKTOP\CLASSES\ECEN 2440\ECEN2440-FINAL-PROJECT\PSPICE\BDXXC0AXFP\BDXXC0AXFP\TESTCIRCUIT\BD00C0AWFP.DSN")
+      (Schematic "5_DropoutVoltage")
+      (Page "PAGE1")))
+  (MPSSessionName "Giselle")
+  (PartMRUSelector
+    (Sw_tClose
+      (FullPartName "Sw_tClose.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\TCLSCRIPTS\CAPPSPICEMODELAPP\SWITCH\HYBRID\SUPPORTFILES\SWITCH.OLB")
+      (DeviceIndex "0"))
+    (R
+      (FullPartName "R.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (C
+      (FullPartName "C.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (PARAM
+      (FullPartName "PARAM.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\PSPICE\SPECIAL.OLB")
+      (DeviceIndex "0"))
+    (0
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (L
+      (FullPartName "L.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (0402CS-16N
+      (FullPartName "0402CS-16N.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\PSPICE\COILCRAFT.OLB")
+      (DeviceIndex "0"))
+    (BD80C0AWFP
+      (FullPartName "BD80C0AWFP.Normal")
+      (LibraryName
+         "\\RLWINDT489\AEA-DATA\22_SPICEMODEL\04.WEBUP\61Šú\AEM61-D1-0001(BD00C0AWFP)\WEBUPPREPARE\TESTCIRCUIT\OLB\BDXXC0AXFP.OLB")
+      (DeviceIndex "0"))
+    (BD00C0AWFP
+      (FullPartName "BD00C0AWFP.Normal")
+      (LibraryName
+         "D:\16_WEBUP_TEST(SPICE)\20180514_BD00C0A\TESTCIRCUIT\OLB\BDXXC0AXFP.OLB")
+      (DeviceIndex "0"))
+    (VPULSE
+      (FullPartName "VPULSE.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (IPULSE
+      (FullPartName "IPULSE.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (IDC
+      (FullPartName "IDC.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0")))
+  (LastUsedLibraryBrowseDirectory
+     "C:\Cadence\SPB_17.2\tools\capture\library\pspice"))
