@@ -104,7 +104,9 @@ void EUSCIA3_IRQHandler(){
 
     if((EUSCI_A3->IFG & EUSCI_A_IFG_TXIFG)){
         if(teensy_buffer_size > 0){ // if we have more to transmit
+            #ifdef DEBUG
             P2OUT ^= 0x2; // toggle GREEN led when this happens for debug
+            #endif
             teensy_uart_state = (teensy_uart_state+1) % 4;
             if(teensy_uart_state != 3){
                 EUSCI_A3->TXBUF = teensy_buffer[teensy_buffer_size-1][teensy_uart_state]; // put next char in UCAxTXBUF
@@ -118,12 +120,16 @@ void EUSCIA3_IRQHandler(){
 
     }
     if(EUSCI_A3->IFG & EUSCI_A_IFG_RXIFG){
+        #ifdef DEBUG
         P2OUT ^= 0b1; // toggle RED led when this happens.
+        #endif
         // set when character is received and loaded into UCAxRXBUF
         // Read character out of buffer
         uint8_t data = EUSCI_A3->RXBUF;
         if(data == 'r'){
+            #ifdef DEBUG
             P2OUT ^= 0b100; // toggle BLUE led when this happens.
+            #endif
             teensy_ready = 1;
         }
         // echo to tx
