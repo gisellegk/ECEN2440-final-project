@@ -131,6 +131,9 @@ void EUSCIA3_IRQHandler(){
             P2OUT ^= 0b100; // toggle BLUE led when this happens.
             #endif
             teensy_ready = 1;
+
+            // send back 'a' for acknowledge
+            EUSCI_A3->TXBUF = 'a';
         }
         // echo to tx
         //EUSCI_A3->TXBUF = data;
