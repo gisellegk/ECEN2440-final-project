@@ -1,3 +1,12 @@
+#include <BlockDriver.h>
+#include <FreeStack.h>
+#include <MinimumSerial.h>
+#include <SdFat.h>
+#include <SdFatConfig.h>
+#include <sdios.h>
+#include <SysCall.h>
+
+
 #include <SdFat.h>
 
 #define HWSERIAL Serial1
@@ -24,7 +33,9 @@ void setup() {
     delay(500);
   }
   sprintf(filename, "datalog.csv");
-  HWSERIAL.print('r'); // ready
+  while(!(HWSERIAL.read ==  'a')) {
+      HWSERIAL.print('r'); // ready
+  }
   #ifdef DEBUG
     Serial.println("Ready!");
   #endif
