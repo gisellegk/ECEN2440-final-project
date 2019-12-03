@@ -1,5 +1,8 @@
 #include "msp.h"
 #include <math.h>
+#define SYSTEM_CLOCK        3000000  // [Hz] system_msp432p401r.c
+#define PWM_FREQUENCY       100000   // [Hz] PWM frequency desired
+#define CALC_PERIOD      (SYSTEM_CLOCK / PWM_FREQUENCY) //calc # of ticks in period
 /**
  * main.c
  */
@@ -7,10 +10,11 @@
 int sin_select = 0;
 
 void set_duty_cycle(float value[]){
-    TIMER_A0->CCR[0] |= (int) roundf(value[sin_select]);
+    while(1){
+    TIMER_A0->CCR[1] =  ((((int)value[sin_select]) * CALC_PERIOD) / 100);
     sin_select = (sin_select+1)%167;
 }
-
+}
 void TA0_0_IRQHandler(float value[]){
     if(TIMER_A0 ->CCTL[0] & TIMER_A_CCTLN_CCIFG){  // checks if the interrupt flag is up
         set_duty_cycle(value);
@@ -18,14 +22,14 @@ void TA0_0_IRQHandler(float value[]){
     }
 }
 void pwm(float value[]){
-    P2 -> DIR |= BIT4; // intialize p2.4 as timerA0 output
+    P2 -> DIR |= BIT4; // intialize p2.4 as timerA0 high output
     P2 -> OUT |= BIT4;
     P2 -> SEL0 |= BIT4; //NOT SURE IF WE NEED THESE.....
     P2 -> SEL1 &= ~BIT4;
 
     TIMER_A0 ->CTL |=TIMER_A_CTL_CLR ; //CLEAR THE CLOCK
     TIMER_A0 -> CTL |=TIMER_A_CTL_SSEL__SMCLK; //SELECT CLOCK
-    //TIMER_A0 -> CCTL[1] |= TIMER_A_CCTLN_OUTMOD_7; THIS FUNCTION RESETS THE TIMER A0 CLOCK(MIGHT NEED TO BE TAMPERED WITH)
+    TIMER_A0 -> CCTL[1] |= TIMER_A_CCTLN_OUTMOD_7; //THIS FUNCTION RESETS/SETS THE TIMER A0 CLOCK(MIGHT NEED TO BE TAMPERED WITH)
     TIMER_A0 ->CTL |= BIT6;// clock input divider of 2
     TIMER_A0 ->CCTL[0] |= TIMER_A_CCTLN_CCIE; //enables clock interrupt
     TIMER_A0 ->CCTL[0] &= ~0b1; //sets flag to low
@@ -36,7 +40,9 @@ void pwm(float value[]){
     set_duty_cycle(value);
 }
 void start_pwm(void){
+    TIMER_A0->CCR[0] = CALC_PERIOD;
     TIMER_A0->CTL |= TIMER_A_CTL_MC__UP;
+
 }
 
 
