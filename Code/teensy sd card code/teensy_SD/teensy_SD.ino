@@ -24,7 +24,9 @@ void setup() {
     delay(500);
   }
   sprintf(filename, "datalog.csv");
-  HWSERIAL.print('r'); // ready
+  while(!(HWSERIAL.read ==  'a')) {
+      HWSERIAL.print('r'); // ready
+  }
   #ifdef DEBUG
     Serial.println("Ready!");
   #endif
