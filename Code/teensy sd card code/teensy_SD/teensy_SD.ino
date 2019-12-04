@@ -1,12 +1,3 @@
-#include <BlockDriver.h>
-#include <FreeStack.h>
-#include <MinimumSerial.h>
-#include <SdFat.h>
-#include <SdFatConfig.h>
-#include <sdios.h>
-#include <SysCall.h>
-
-
 #include <SdFat.h>
 
 #define HWSERIAL Serial1
@@ -21,6 +12,8 @@ char filename[12];
 int starttime;
 int i;
 
+char ack = 'n';
+
 void setup() {
   HWSERIAL.begin(9600);
   #ifdef DEBUG
@@ -33,11 +26,17 @@ void setup() {
     delay(500);
   }
   sprintf(filename, "datalog.csv");
-  while(!(HWSERIAL.read ==  'a')) {
+  while(!(ack == 'a')) {
       HWSERIAL.print('r'); // ready
+      Serial.println("Ready!");
+      if(HWSERIAL.available() > 0) {
+        Serial.print("Input available ");
+        Serial.println(ack);
+        ack = HWSERIAL.read();
+      }
   }
   #ifdef DEBUG
-    Serial.println("Ready!");
+    Serial.println("time to write to sd card!");
   #endif
   i = 0;
   starttime = millis();
@@ -60,12 +59,12 @@ void writeSD(int t, int incomingByte){
 void loop() {
   int incomingByte;
   if(HWSERIAL.available() > 0) {
+    incomingByte = HWSERIAL.read();
+    writeSD(millis(), incomingByte);
     #ifdef DEBUG
       Serial.print("UART Received: " );
       Serial.println(incomingByte, DEC);
     #endif
-    incomingByte = HWSERIAL.read();
-    writeSD(millis(), incomingByte);
   }
 /*  int incomingByte;
 

@@ -9,7 +9,7 @@
  * main.c
  */
 
-#define DEBUG 1
+#define DEBUG
 
 void config_clock(void){
     // set DCO to 12 MHz

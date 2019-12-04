@@ -10,6 +10,7 @@
 
 #define fBRCLK 12000000 // Hz - input clock freq.
 
+#define DEBUG
 //char []
 
 void init_teensy_vars(){
@@ -134,6 +135,9 @@ void EUSCIA3_IRQHandler(){
 
             // send back 'a' for acknowledge
             EUSCI_A3->TXBUF = 'a';
+        }
+        if(teensy_ready == 1){
+            P2OUT &= ~0b101; // turn off red and blue.
         }
         // echo to tx
         //EUSCI_A3->TXBUF = data;
