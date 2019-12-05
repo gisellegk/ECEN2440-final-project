@@ -14,12 +14,12 @@
 //char []
 
 void init_teensy_vars(){
-    teensy_uart_state = 3;
+    teensy_uart_state = TEENSY_LOG_LENGTH;
     teensy_ready = 0;
     teensy_buffer_size = 0;
     int i; int j;
     for(i = 0;  i < TEENSY_BUFFER_MAX; i++){
-        for(j = 0; j < 3; j++){
+        for(j = 0; j < TEENSY_LOG_LENGTH; j++){
             teensy_buffer[i][j] = 0;
         }
     }
@@ -88,6 +88,7 @@ void enable_teensy_interrupts(){
 
 }
 
+// depreciated
 int write_altitude(uint8_t byte0, uint8_t byte1, uint8_t byte2){
     if((teensy_buffer_size) < TEENSY_BUFFER_MAX){ // if not full
         teensy_buffer[teensy_buffer_size][0] = byte0;
@@ -101,6 +102,63 @@ int write_altitude(uint8_t byte0, uint8_t byte1, uint8_t byte2){
     return 0;
 }
 
+int write_data(uint8_t alt0, uint8_t alt1, uint8_t crc_alt0, uint8_t alt2, uint8_t alt3, uint8_t crc_alt1, uint8_t temp0, uint8_t temp1, uint8_t crc_temp){
+    if((teensy_buffer_size) < TEENSY_BUFFER_MAX){ // if not full
+        teensy_buffer[teensy_buffer_size][0] = alt0;
+        teensy_buffer[teensy_buffer_size][1] = alt1;
+        teensy_buffer[teensy_buffer_size][2] = crc_alt0;
+        teensy_buffer[teensy_buffer_size][3] = alt2;
+        teensy_buffer[teensy_buffer_size][4] = alt3;
+        teensy_buffer[teensy_buffer_size][5] = crc_alt1;
+        teensy_buffer[teensy_buffer_size][6] = temp0;
+        teensy_buffer[teensy_buffer_size][7] = temp1;
+        teensy_buffer[teensy_buffer_size][8] = crc_temp;
+        teensy_buffer_size++; // increment size.
+        EUSCI_A3->IE |= EUSCI_A_IE_TXIE;
+        //EUSCI_A3->IFG |= (BIT1); // set TX flag?
+        return 1;
+    }
+    return 0;
+}
+
+int write_part_number(uint8_t byte0, uint8_t byte1, uint8_t crc){
+    if((teensy_buffer_size) < TEENSY_BUFFER_MAX){ // if not full
+            teensy_buffer[teensy_buffer_size][0] = 'p'; // PART NUMBER
+            teensy_buffer[teensy_buffer_size][1] = 'n';
+            teensy_buffer[teensy_buffer_size][2] = 0;
+            teensy_buffer[teensy_buffer_size][3] = 0;
+            teensy_buffer[teensy_buffer_size][4] = 0;
+            teensy_buffer[teensy_buffer_size][5] = 0;
+            teensy_buffer[teensy_buffer_size][6] = byte0;
+            teensy_buffer[teensy_buffer_size][7] = byte1;
+            teensy_buffer[teensy_buffer_size][8] = crc;
+            teensy_buffer_size++; // increment size.
+            EUSCI_A3->IE |= EUSCI_A_IE_TXIE;
+            //EUSCI_A3->IFG |= (BIT1); // set TX flag?
+            return 1;
+        }
+        return 0;
+}
+
+int write_calibration(uint8_t id, uint8_t byte0, uint8_t byte1, uint8_t crc){
+    if((teensy_buffer_size) < TEENSY_BUFFER_MAX){ // if not full
+                teensy_buffer[teensy_buffer_size][0] = 'c'; // CALIBRATION NUMBER
+                teensy_buffer[teensy_buffer_size][1] = 'n';
+                teensy_buffer[teensy_buffer_size][2] = id; // idk what they are but this tells us which is which
+                teensy_buffer[teensy_buffer_size][3] = 0;
+                teensy_buffer[teensy_buffer_size][4] = 0;
+                teensy_buffer[teensy_buffer_size][5] = 0;
+                teensy_buffer[teensy_buffer_size][6] = byte0;
+                teensy_buffer[teensy_buffer_size][7] = byte1;
+                teensy_buffer[teensy_buffer_size][8] = crc;
+                teensy_buffer_size++; // increment size.
+                EUSCI_A3->IE |= EUSCI_A_IE_TXIE;
+                //EUSCI_A3->IFG |= (BIT1); // set TX flag?
+                return 1;
+            }
+            return 0;
+}
+
 void EUSCIA3_IRQHandler(){
 
     if((EUSCI_A3->IFG & EUSCI_A_IFG_TXIFG)){
@@ -108,8 +166,8 @@ void EUSCIA3_IRQHandler(){
             #ifdef DEBUG
             P2OUT ^= 0x2; // toggle GREEN led when this happens for debug
             #endif
-            teensy_uart_state = (teensy_uart_state+1) % 4;
-            if(teensy_uart_state != 3){
+            teensy_uart_state = (teensy_uart_state+1) % (TEENSY_LOG_LENGTH+1);
+            if(teensy_uart_state != TEENSY_LOG_LENGTH){
                 EUSCI_A3->TXBUF = teensy_buffer[teensy_buffer_size-1][teensy_uart_state]; // put next char in UCAxTXBUF
             } else {
                 // Manuel says that TXIFG is reset when you write to TXBUF
