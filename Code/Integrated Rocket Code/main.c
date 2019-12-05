@@ -41,13 +41,14 @@ int main(void)
     while(teensy_ready == 0){}
 
     uint8_t id = request_id();
+    write_part_number(id);
+    // write 4 calibration #'s
 
     uint8_t pressure[6];
 
-
-
     while(1){
         request_pressure_measurement(pressure);
+        //TODO: fix this so it's the whole 9 bytes
         write_altitude(pressure[0], pressure[1], pressure[3]);
         for(delay_ctr = 0; delay_ctr < (100000); delay_ctr++); // wait a bit.
     }

@@ -6,19 +6,17 @@
  */
 #include "altimeter.h"
 
-uint8_t request_id(void){
+void request_id(uint8_t *id){
     measurement_sequence(ICP10111, WRITE_HEADER, ID_MSB, ID_LSB);
 
     read_probing(ICP10111, READ_HEADER);
 
     uint8_t i;
-    uint8_t id;
-    for (i=0; i < 2; i++) {
-        id = read_data(ICP10111);
+    for(i = 0; i < 3; i++){
+        id[i] = read_data(ICP10111); // msb, lsb, crc.
     }
-
     send_stop();
-    return id;
+
 }
 
 void request_pressure_measurement(uint8_t *pressure){
