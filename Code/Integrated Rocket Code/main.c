@@ -49,8 +49,11 @@ int main(void)
     while(1){
         request_pressure_measurement(pressure);
         //TODO: fix this so it's the whole 9 bytes
-        write_altitude(pressure[0], pressure[1], pressure[3]);
+        write_data(pressure[0], pressure[1], pressure[3]);
         for(delay_ctr = 0; delay_ctr < (100000); delay_ctr++); // wait a bit.
+
+        // do math
+        // write_altitude.
     }
 
     return 0;

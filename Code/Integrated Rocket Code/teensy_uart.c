@@ -88,18 +88,9 @@ void enable_teensy_interrupts(){
 
 }
 
-// depreciated
-int write_altitude(uint8_t byte0, uint8_t byte1, uint8_t byte2){
-    if((teensy_buffer_size) < TEENSY_BUFFER_MAX){ // if not full
-        teensy_buffer[teensy_buffer_size][0] = byte0;
-        teensy_buffer[teensy_buffer_size][1] = byte1;
-        teensy_buffer[teensy_buffer_size][2] = byte2;
-        teensy_buffer_size++; // increment size.
-        EUSCI_A3->IE |= EUSCI_A_IE_TXIE;
-        //EUSCI_A3->IFG |= (BIT1); // set TX flag?
-        return 1;
-    }
-    return 0;
+
+int write_altitude(uint8_t byte0, uint8_t byte1){
+    // log processed data altitude - after math.
 }
 
 int write_data(uint8_t alt0, uint8_t alt1, uint8_t crc_alt0, uint8_t alt2, uint8_t alt3, uint8_t crc_alt1, uint8_t temp0, uint8_t temp1, uint8_t crc_temp){
