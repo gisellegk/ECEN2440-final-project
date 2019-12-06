@@ -6,19 +6,63 @@
  */
 #include "altimeter.h"
 
-uint8_t request_id(void){
+void get_calibration(uint8_t cn[], uint8_t address) {
+    set_as_transmitter();
+    set_i2c_address(address);
+    set_i2c_byte_counter(4);
+    send_start();
+
+    EUSCI_B0->TXBUF = OTP_SET_UP_1;
+    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
+
+    EUSCI_B0->TXBUF = OTP_SET_UP_2;
+    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
+
+    EUSCI_B0->TXBUF = OTP_SET_UP_3;
+    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
+
+    EUSCI_B0->TXBUF = OTP_SET_UP_4;
+    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
+
+    EUSCI_B0->TXBUF = OTP_SET_UP_5;
+    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
+
+    send_start();
+
+    EUSCI_B0->TXBUF = OTP_READ_MSB;
+    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
+
+    EUSCI_B0->TXBUF = OTP_READ_LSB;
+    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
+
+    read_probing(address, 0);
+
+    int i;
+    for (i = 0; i < 4; i++) {
+        int cn_msb = read_data(address);
+        int cn_lsb = read_data(address);
+        int cn_crc = read_data(address);
+
+        cn[0 + (2 * i)] = cn_msb;
+        cn[1 + (2 * i)] = cn_lsb;
+    }
+
+    send_stop();
+}
+
+void request_id(uint8_t id[]){
     measurement_sequence(ICP10111, WRITE_HEADER, ID_MSB, ID_LSB);
 
     read_probing(ICP10111, READ_HEADER);
 
     uint8_t i;
     uint8_t id;
-    for (i=0; i < 2; i++) {
-        id = read_data(ICP10111);
+    for (i=0; i < 3; i++) {
+        id[i] = read_data(ICP10111);
     }
 
     send_stop();
-    return id;
+    return;
 }
 
 void request_pressure_measurement(uint8_t *pressure){

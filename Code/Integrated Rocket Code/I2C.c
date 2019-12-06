@@ -19,50 +19,6 @@
 #define OTP_READ_MSB 0xC7
 #define OTP_READ_LSB 0xF7
 
-void get_calibration(uint8_t cn[], uint8_t address) {
-    set_as_transmitter();
-    set_i2c_address(address);
-    set_i2c_byte_counter(4);
-    send_start();
-
-    EUSCI_B0->TXBUF = OTP_SET_UP_1;
-    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
-
-    EUSCI_B0->TXBUF = OTP_SET_UP_2;
-    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
-
-    EUSCI_B0->TXBUF = OTP_SET_UP_3;
-    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
-
-    EUSCI_B0->TXBUF = OTP_SET_UP_4;
-    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
-
-    EUSCI_B0->TXBUF = OTP_SET_UP_5;
-    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
-
-    send_start();
-
-    EUSCI_B0->TXBUF = OTP_READ_MSB;
-    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
-
-    EUSCI_B0->TXBUF = OTP_READ_LSB;
-    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
-
-    read_probing(address, 0);
-
-    int i;
-    for (i = 0; i < 4; i++) {
-        int cn_msb = read_data(address);
-        int cn_lsb = read_data(address);
-        int cn_crc = read_data(address);
-
-        cn[0 + (2 * i)] = cn_msb;
-        cn[1 + (2 * i)] = cn_lsb;
-    }
-
-    send_stop();
-}
-
 void measurement_sequence(uint8_t address, uint8_t reg, uint8_t msb, uint8_t lsb) {
     set_as_transmitter();       // set to transmit mode
         set_i2c_address(address);   // set slave address
@@ -188,7 +144,7 @@ uint8_t read_register(uint8_t address, uint8_t reg) {
 
 uint8_t read_data(uint8_t address) {
 
-    uint8_t rx_data = 0xFF;
+    uint8_t rx_data = 0x01;
 
     while(!(EUSCI_B0->IFG & EUSCI_B_IFG_RXIFG));
     rx_data = EUSCI_B0->RXBUF;

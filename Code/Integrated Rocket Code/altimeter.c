@@ -26,7 +26,7 @@ void request_pressure_measurement(uint8_t *pressure){
 
     int i = 0;
 
-    for(i = 0; i < 6; i++) {
+    for(i = 0; i < 9; i++) {
         pressure[i] = read_data(ICP10111);
     }
 
@@ -42,6 +42,51 @@ void request_full_measurement(uint8_t *data){
 
     for(i = 0; i < 9; i++) {
         data[i] = read_data(ICP10111);
+    }
+
+    send_stop();
+}
+
+void get_calibration(uint8_t cn[], uint8_t address) {
+    set_as_transmitter();
+    set_i2c_address(address);
+    set_i2c_byte_counter(4);
+    send_start();
+
+    EUSCI_B0->TXBUF = OTP_SET_UP_1;
+    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
+
+    EUSCI_B0->TXBUF = OTP_SET_UP_2;
+    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
+
+    EUSCI_B0->TXBUF = OTP_SET_UP_3;
+    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
+
+    EUSCI_B0->TXBUF = OTP_SET_UP_4;
+    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
+
+    EUSCI_B0->TXBUF = OTP_SET_UP_5;
+    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
+
+    send_start();
+
+    EUSCI_B0->TXBUF = OTP_READ_MSB;
+    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
+
+    EUSCI_B0->TXBUF = OTP_READ_LSB;
+    while(!(EUSCI_B0->IFG & EUSCI_B_IFG_TXIFG));
+
+    read_probing(address, 0);
+
+    int i;
+    for (i = 0; i < 4; i++) {
+        int cn_msb = read_data(address);
+        int cn_lsb = read_data(address);
+        int cn_crc = read_data(address);
+
+        cn[0 + (3 * i)] = cn_msb;
+        cn[1 + (3 * i)] = cn_lsb;
+        cn[2 + (3 * i)] = cn_crc;
     }
 
     send_stop();

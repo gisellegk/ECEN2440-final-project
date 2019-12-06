@@ -27,6 +27,8 @@ uint8_t request_id(void);
 
 void request_pressure_measurement(uint8_t *pressure);
 void request_full_measurement(uint8_t *data);
+void get_calibration(uint8_t cn[], uint8_t address);
+void request_id(uint8_t id[]);
 
 
 #endif /* ALTIMETER_H_ */

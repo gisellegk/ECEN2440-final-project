@@ -89,8 +89,9 @@ void enable_teensy_interrupts(){
 }
 
 
-int write_altitude(uint8_t byte0, uint8_t byte1){
+int write_altitude(uint8_t byte0, uint8_t byte1, uint8_t byte_2){
     // log processed data altitude - after math.
+    return 0;
 }
 
 int write_data(uint8_t alt0, uint8_t alt1, uint8_t crc_alt0, uint8_t alt2, uint8_t alt3, uint8_t crc_alt1, uint8_t temp0, uint8_t temp1, uint8_t crc_temp){
@@ -159,7 +160,8 @@ void EUSCIA3_IRQHandler(){
             #endif
             teensy_uart_state = (teensy_uart_state+1) % (TEENSY_LOG_LENGTH+1);
             if(teensy_uart_state != TEENSY_LOG_LENGTH){
-                EUSCI_A3->TXBUF = teensy_buffer[teensy_buffer_size-1][teensy_uart_state]; // put next char in UCAxTXBUF
+                uint8_t nextChar = teensy_buffer[teensy_buffer_size-1][teensy_uart_state]; // put next char in UCAxTXBUF
+                EUSCI_A3->TXBUF = nextChar;
             } else {
                 // Manuel says that TXIFG is reset when you write to TXBUF
                 teensy_buffer_size--;
