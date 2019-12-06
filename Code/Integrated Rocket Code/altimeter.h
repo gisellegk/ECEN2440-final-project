@@ -23,10 +23,19 @@
 #define ID_MSB 0xEF
 #define ID_LSB 0xC8
 
-uint8_t request_id(void);
+#define OTP_SET_UP_1 0xC5
+#define OTP_SET_UP_2 0x95
+#define OTP_SET_UP_3 0x00
+#define OTP_SET_UP_4 0x66
+#define OTP_SET_UP_5 0x9C
 
+#define OTP_READ_MSB 0xC7
+#define OTP_READ_LSB 0xF7
+
+void request_id(uint8_t id[]);
 void request_pressure_measurement(uint8_t *pressure);
 void request_full_measurement(uint8_t *data);
+void get_calibration(uint8_t *cn, uint8_t address);
 
 
 #endif /* ALTIMETER_H_ */

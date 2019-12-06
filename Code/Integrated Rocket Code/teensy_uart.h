@@ -8,7 +8,7 @@
 #ifndef TEENSY_UART_H_
 #define TEENSY_UART_H_
 
-#define TEENSY_BUFFER_MAX 10
+#define TEENSY_BUFFER_MAX 1
 #define TEENSY_LOG_LENGTH 9
 
 

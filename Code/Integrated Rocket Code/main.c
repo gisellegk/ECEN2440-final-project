@@ -11,6 +11,14 @@
 
 #define DEBUG
 
+#define p_Pa_calib_0 45000.0
+#define p_Pa_calib_1 80000.0
+#define p_Pa_calib_2 105000.0
+#define LUT_lower 3.5 * (1U<<20)
+#define LUT_upper 11.5 * (1U<<20)
+#define quadr_factor (1 / 16777216.0)
+#define offst_factor 2048.0
+
 void config_clock(void){
     // set DCO to 12 MHz
     // in register CSCTL0:
@@ -40,16 +48,46 @@ int main(void)
     enable_teensy_uart(); // also enables interrupts
     while(teensy_ready == 0){}
 
-    uint8_t id = request_id();
-    write_part_number(id);
+    uint8_t id[3] = {0, 0, 0};
+    request_id(id);
+    uint8_t check_id = write_part_number(id[0], id[1], id[2]);
+    while (check_id == 0) {
+       check_id = write_part_number(id[0], id[1], id[2]);
+    }
+
+    uint8_t cn[12];
+    get_calibration(cn, ICP10111);
+    int jk;
+    uint8_t check_cn = 2;
+    for (jk = 0; jk < 4; jk++) {
+        check_cn = write_calibration(jk, cn[0 + (3 * jk)], cn[1 + (3 * jk)], cn[2 + (3 * jk)]);
+
+        while(check_cn == 0) {
+            check_cn = write_calibration(jk, cn[0 + (3 * jk)], cn[1 + (3 * jk)], cn[2 + (3 * jk)]);
+        }
+    }
     // write 4 calibration #'s
 
-    uint8_t pressure[6];
+    uint8_t pressure[9];
+
+    int16_t cn_decoded_0 = (cn[0] << 8) | (cn[1] >> 8);
+
+    int16_t cn_decoded_1 = ((cn[3] << 8) | (cn[4]) >> 8);
+
+    int16_t cn_decoded_2 = ((cn[6] << 8) | (cn[7]) >> 8);
+
+    int16_t cn_decoded_3 = (cn[9] << 8) | (cn[10] >> 8);
+
+    int16_t cn_decoded[4] = {cn_decoded_0, cn_decoded_1, cn_decoded_2, cn_decoded_3};
 
     while(1){
         request_pressure_measurement(pressure);
         //TODO: fix this so it's the whole 9 bytes
-        write_data(pressure[0], pressure[1], pressure[3]);
+        uint8_t check_data = write_data(pressure[0], pressure[1], pressure[2], pressure[3], 0, pressure[5], pressure[6], pressure[7], pressure[8]);
+
+        while(check_data == 0) {
+            check_data = write_data(pressure[0], pressure[1], pressure[2], pressure[3], 0, pressure[5], pressure[6], pressure[7], pressure[8]);
+        }
         for(delay_ctr = 0; delay_ctr < (100000); delay_ctr++); // wait a bit.
 
         // do math

@@ -23,7 +23,7 @@
 
 #define p_Pa_calib_0 45000.0
 #define p_Pa_calib_1 80000.0
-#define p_Pa_calib_2 105000.0
+#define p_Pa_calib_2 105000.0 
 #define LUT_lower 3.5 * (1U<<20)
 #define LUT_upper 11.5 * (1U<<20)
 #define quadr_factor (1 / 16777216.0)
