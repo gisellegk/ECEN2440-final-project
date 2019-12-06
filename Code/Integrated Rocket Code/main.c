@@ -51,20 +51,14 @@ int main(void)
     uint8_t id[3] = {0, 0, 0};
     request_id(id);
     uint8_t check_id = write_part_number(id[0], id[1], id[2]);
-    while (check_id == 0) {
-       check_id = write_part_number(id[0], id[1], id[2]);
-    }
-
+    for(delay_ctr = 0; delay_ctr < (100000); delay_ctr++); // wait a bit.
     uint8_t cn[12];
     get_calibration(cn, ICP10111);
     int jk;
     uint8_t check_cn = 2;
     for (jk = 0; jk < 4; jk++) {
         check_cn = write_calibration(jk, cn[0 + (3 * jk)], cn[1 + (3 * jk)], cn[2 + (3 * jk)]);
-
-        while(check_cn == 0) {
-            check_cn = write_calibration(jk, cn[0 + (3 * jk)], cn[1 + (3 * jk)], cn[2 + (3 * jk)]);
-        }
+        for(delay_ctr = 0; delay_ctr < (100000); delay_ctr++); // wait a bit.
     }
     // write 4 calibration #'s
 
@@ -85,9 +79,6 @@ int main(void)
         //TODO: fix this so it's the whole 9 bytes
         uint8_t check_data = write_data(pressure[0], pressure[1], pressure[2], pressure[3], 0, pressure[5], pressure[6], pressure[7], pressure[8]);
 
-        while(check_data == 0) {
-            check_data = write_data(pressure[0], pressure[1], pressure[2], pressure[3], 0, pressure[5], pressure[6], pressure[7], pressure[8]);
-        }
         for(delay_ctr = 0; delay_ctr < (100000); delay_ctr++); // wait a bit.
 
         // do math

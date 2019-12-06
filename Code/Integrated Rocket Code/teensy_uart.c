@@ -178,7 +178,7 @@ void EUSCIA3_IRQHandler(){
         // set when character is received and loaded into UCAxRXBUF
         // Read character out of buffer
         uint8_t data = EUSCI_A3->RXBUF;
-        if(data == 'r'){
+        if(data == 'r' && !teensy_ready){
             #ifdef DEBUG
             P2OUT ^= 0b100; // toggle BLUE led when this happens.
             #endif
