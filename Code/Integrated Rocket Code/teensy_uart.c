@@ -159,7 +159,6 @@ void EUSCIA3_IRQHandler(){
             P2OUT ^= 0x2; // toggle GREEN led when this happens for debug
             #endif
 
-            P9->OUT ^= BIT1;
             teensy_uart_state = (teensy_uart_state+1) % (TEENSY_LOG_LENGTH+1);
             if(teensy_uart_state != TEENSY_LOG_LENGTH){
                 uint8_t nextChar = teensy_buffer[teensy_buffer_size-1][teensy_uart_state]; // put next char in UCAxTXBUF
