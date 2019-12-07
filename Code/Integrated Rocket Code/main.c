@@ -40,6 +40,13 @@ int main(void)
 
     int delay_ctr;
 
+    P9->DIR |= BIT1;
+    P9->OUT = 0;
+
+    P9->DIR &= ~BIT2;
+    P9->REN |= BIT2;
+    P9->OUT &= ~BIT2;
+
     config_i2c();
     // Configure UART
     config_teensy_uart(9600);
@@ -48,22 +55,28 @@ int main(void)
     enable_teensy_uart(); // also enables interrupts
     while(teensy_ready == 0){}
 
+    P9->OUT |= BIT1; // turn LED on once teensy is ready
+
+    while((P9->IN & BIT2) == BIT2){} // Wait until the tag is pulled and the jumper wire is pulled out
+
     uint8_t id[3] = {0, 0, 0};
     request_id(id);
     uint8_t check_id = write_part_number(id[0], id[1], id[2]);
     for(delay_ctr = 0; delay_ctr < (100000); delay_ctr++); // wait a bit.
-    uint8_t cn[12];
-    get_calibration(cn, ICP10111);
-    int jk;
-    uint8_t check_cn = 2;
+    //uint8_t cn[12];
+    //get_calibration(cn, ICP10111);
+    //int jk;
+    //uint8_t check_cn = 2;
+    /*
     for (jk = 0; jk < 4; jk++) {
         check_cn = write_calibration(jk, cn[0 + (3 * jk)], cn[1 + (3 * jk)], cn[2 + (3 * jk)]);
         for(delay_ctr = 0; delay_ctr < (100000); delay_ctr++); // wait a bit.
     }
+    */
     // write 4 calibration #'s
 
     uint8_t pressure[9];
-
+    /*
     int16_t cn_decoded_0 = (cn[0] << 8) | (cn[1] >> 8);
 
     int16_t cn_decoded_1 = ((cn[3] << 8) | (cn[4]) >> 8);
@@ -73,16 +86,23 @@ int main(void)
     int16_t cn_decoded_3 = (cn[9] << 8) | (cn[10] >> 8);
 
     int16_t cn_decoded[4] = {cn_decoded_0, cn_decoded_1, cn_decoded_2, cn_decoded_3};
+    */
 
+    int led_counter = 0;
     while(1){
+        if (led_counter == 5) {
+            P9->OUT ^= BIT1;
+            led_counter = 0;
+        }
         request_pressure_measurement(pressure);
         //TODO: fix this so it's the whole 9 bytes
-        uint8_t check_data = write_data(pressure[0], pressure[1], pressure[2], pressure[3], 0, pressure[5], pressure[6], pressure[7], pressure[8]);
+        uint8_t check_data = write_data(pressure[0], pressure[1], pressure[2], pressure[3], pressure[4], pressure[5], pressure[6], pressure[7], pressure[8]);
 
         for(delay_ctr = 0; delay_ctr < (100000); delay_ctr++); // wait a bit.
 
         // do math
         // write_altitude.
+        led_counter = led_counter + 1;
     }
 
     return 0;
