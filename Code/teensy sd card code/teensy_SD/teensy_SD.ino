@@ -58,25 +58,35 @@ void writeSD(int t, uint8_t incomingByte){
 }
 
 bool pn = false;
-
+bool ff = false;
 void loop() {
   uint8_t incomingByte;
   if(HWSERIAL.available() > 0) {
     incomingByte = HWSERIAL.read();
     if(!pn){
-      if( (incomingByte == 0xFF) ) {
+      if( (incomingByte == 0xF1) ) {
         // trying to get rid of the first FF. 
         pn = true;
-      } else {
-        writeSD(millis(), incomingByte);
       }
-    } else {
       writeSD(millis(), incomingByte);
       #ifdef DEBUG
         Serial.print("UART Received: " );
         Serial.println(incomingByte, DEC);
       #endif
+    } else {
+      if(!ff){
+        ff = true; 
+        // dont log
+      } else {
+        writeSD(millis(), incomingByte);
+        #ifdef DEBUG
+          Serial.print("UART Received: " );
+          Serial.println(incomingByte, DEC);
+        #endif
+      }
     }
+    
+    
   }
 /*  int incomingByte;
 
