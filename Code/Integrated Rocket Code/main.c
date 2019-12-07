@@ -40,6 +40,12 @@ int main(void)
 
     int delay_ctr;
 
+    P9->DIR |= BIT1;
+
+    P9->DIR &= ~BIT2;
+    P9->REN |= BIT2;
+    P9->OUT &= ~BIT2;
+
     config_i2c();
     // Configure UART
     config_teensy_uart(9600);
@@ -47,6 +53,10 @@ int main(void)
     // Enable UART
     enable_teensy_uart(); // also enables interrupts
     while(teensy_ready == 0){}
+
+    P9->OUT |= BIT1; // turn LED on once teensy is ready
+
+    while((P9->IN & BIT2) == BIT2){} // Wait until the tag is pulled and the jumper wire is pulled out
 
     uint8_t id[3] = {0, 0, 0};
     request_id(id);
@@ -83,7 +93,7 @@ int main(void)
     while(1){
         request_pressure_measurement(pressure);
         //TODO: fix this so it's the whole 9 bytes
-        uint8_t check_data = write_data(pressure[0], pressure[1], pressure[2], pressure[3], 0, pressure[5], pressure[6], pressure[7], pressure[8]);
+        uint8_t check_data = write_data(pressure[0], pressure[1], pressure[2], pressure[3], pressure[4], pressure[5], pressure[6], pressure[7], pressure[8]);
 
         while(check_data == 0) {
             check_data = write_data(pressure[0], pressure[1], pressure[2], pressure[3], 0, pressure[5], pressure[6], pressure[7], pressure[8]);
