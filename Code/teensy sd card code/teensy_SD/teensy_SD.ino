@@ -26,7 +26,21 @@ void setup() {
     #endif
     delay(500);
   }
-  sprintf(filename, "datalog.csv");
+  int counter = 0;
+  while(true) {
+        sprintf(filename,"datalog%03d.csv",counter);
+
+        if(sd.exists(filename)) {
+            Serial.println("Iterating file counter.");
+            counter+=1;
+            if(counter>999){break;}
+        }
+        else
+        {
+            break;
+        }
+        
+    }
   while(!(ack == 'a')) {
       HWSERIAL.print('r'); // ready
       Serial.println("Ready!");
