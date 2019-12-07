@@ -2,6 +2,7 @@
 
 #define HWSERIAL Serial1
 #define DEBUG 0
+#define TEENSY_LOG_LENGTH 9
 
 const size_t BUF_DIM = 32768;
 const uint32_t FILE_SIZE = 256UL*BUF_DIM;
@@ -42,8 +43,8 @@ void setup() {
   starttime = millis();
 }
 
-void writeSD(int t, int incomingByte){
-  i = (i+1)%3;
+void writeSD(int t, uint8_t incomingByte){
+  i = (i+1)%TEENSY_LOG_LENGTH;
   #ifdef DEBUG
     Serial.print("Writing ");
     Serial.print(incomingByte);
@@ -57,7 +58,7 @@ void writeSD(int t, int incomingByte){
 }
 
 void loop() {
-  int incomingByte;
+  uint8_t incomingByte;
   if(HWSERIAL.available() > 0) {
     incomingByte = HWSERIAL.read();
     writeSD(millis(), incomingByte);
