@@ -40,7 +40,7 @@ void setup() {
     Serial.println("time to write to sd card!");
   #endif
   i = 0;
-  starttime = millis();
+  starttime = millis();  
 }
 
 void writeSD(int t, uint8_t incomingByte){
@@ -57,15 +57,26 @@ void writeSD(int t, uint8_t incomingByte){
   file.close();
 }
 
+bool pn = false;
+
 void loop() {
   uint8_t incomingByte;
   if(HWSERIAL.available() > 0) {
     incomingByte = HWSERIAL.read();
-    writeSD(millis(), incomingByte);
-    #ifdef DEBUG
-      Serial.print("UART Received: " );
-      Serial.println(incomingByte, DEC);
-    #endif
+    if(!pn){
+      if( (incomingByte == 0xFF) ) {
+        // trying to get rid of the first FF. 
+        pn = true;
+      } else {
+        writeSD(millis(), incomingByte);
+      }
+    } else {
+      writeSD(millis(), incomingByte);
+      #ifdef DEBUG
+        Serial.print("UART Received: " );
+        Serial.println(incomingByte, DEC);
+      #endif
+    }
   }
 /*  int incomingByte;
 
@@ -83,5 +94,5 @@ void loop() {
     HWSERIAL.print("UART received: ");
     HWSERIAL.println(incomingByte, DEC);
   }*/
-
+    
 }
